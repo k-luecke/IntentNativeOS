@@ -1,0 +1,5 @@
+(library
+ (name inos_arbitration)
+ (modules state_machine escalation router)
+ (libraries inos_ipc inos_tonic unix str))
+

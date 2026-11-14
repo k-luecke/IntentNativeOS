@@ -1,0 +1,4 @@
+(library
+ (name inos_bridge)
+ (modules bridge_protocol bridge_server)
+ (libraries inos_ipc unix str))

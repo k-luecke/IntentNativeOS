@@ -1,0 +1,32 @@
+[package]
+name = "net_app"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Application Foundry"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = false
+
+[[bin]]
+name = "net_app"
+path = "src/main.rs"
+test = false
+doctest = false
+
+[dependencies]
+inos-app-sdk = { path = "../../sdk" }
+rustls = { version = "0.23", default-features = false, features = ["ring"] }
+rustls-pki-types = { version = "1", default-features = false, features = ["alloc"] }
+rustls-webpki = { version = "0.103", default-features = false, features = ["alloc", "ring"] }
+ring = { version = "0.17", default-features = false, features = ["less-safe-getrandom-custom-or-rdrand"] }
+getrandom = { version = "0.2", default-features = false, features = ["custom"] }
+untrusted = "0.9"
+
+[patch.crates-io]
+ring = { path = "../../../third_party/ring" }
+rustls-webpki = { path = "../../../third_party/rustls-webpki" }

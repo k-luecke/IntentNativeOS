@@ -1,0 +1,22 @@
+[package]
+name = "security_console"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Sentinel Development Unit (SDU-01)"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = true
+
+[[bin]]
+name = "security_console"
+path = "src/main.rs"
+test = false
+doctest = false
+
+[dependencies]
+inos-app-sdk = { path = "../../sdk" }

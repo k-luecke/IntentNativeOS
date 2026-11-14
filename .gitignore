@@ -1,0 +1,15 @@
+_build/
+build/
+**/target/
+*.o
+*.a
+*.so
+*.cmi
+*.cmx
+*.merlin
+models/pretrained/*.bin
+!models/pretrained/tokenizer.bin
+models/pretrained/*.gguf
+models/pretrained/run
+models/inference/quant_engine
+userspace/user_intent_runtime/user_intent_runtime

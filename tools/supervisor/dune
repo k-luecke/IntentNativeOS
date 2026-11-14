@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (modules types backlog scheduler recovery verifier watchdog reviewer milestones worker_adapter supervisor main)
+ (libraries inos_ipc inos_telemetry unix))

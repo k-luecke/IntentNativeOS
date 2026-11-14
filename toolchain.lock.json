@@ -1,0 +1,52 @@
+{
+  "schema": "inos.toolchain.v0.1",
+  "project": "Intent-Native OS",
+  "generated_at": "2026-10-09T13:00:00Z",
+  "policy": {
+    "prohibit_python": true,
+    "require_hermetic_builds": true
+  },
+  "toolchains": {
+    "ocaml": {
+      "version": "4.14.1",
+      "minimum_version": "4.14.0",
+      "target_version": "5.2.0",
+      "compiler": "ocamlopt",
+      "sha256": "pinned"
+    },
+    "dune": {
+      "version": "3.14.0",
+      "minimum_version": "3.0.0"
+    },
+    "alcotest": {
+      "version": "1.7.0"
+    },
+    "qcheck": {
+      "version": "0.21.3"
+    },
+    "rust": {
+      "toolchain": "nightly-2026-09-01",
+      "channel": "nightly",
+      "targets": [
+        "x86_64-unknown-none",
+        "x86_64-unknown-uefi"
+      ],
+      "components": [
+        "rust-src",
+        "llvm-tools-preview"
+      ]
+    },
+    "qemu": {
+      "system": "qemu-system-x86_64",
+      "version": "8.2.2",
+      "minimum_version": "8.0.0"
+    },
+    "ovmf": {
+      "package": "ovmf",
+      "files": [
+        "OVMF_CODE.fd",
+        "OVMF_VARS.fd"
+      ]
+    }
+  }
+}

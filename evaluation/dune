@@ -1,0 +1,3 @@
+(library
+ (name inos_evaluation)
+ (libraries inos_ipc inos_ir inos_security unix))

@@ -1,0 +1,25 @@
+TASK_LEASED|T_FAIL|worker-model-b-01|1791570728.573
+TASK_IMPLEMENTED|T_FAIL|patch-T_FAIL-worker-model-b-01-v1|1791570728.577
+TASK_VERIFIED|T_FAIL|false|Simulated intentional test failure for repair loop test|1791570728.581
+TASK_FAILED|T_FAIL|Verification failed with exit code 1|1|1791570728.584
+TASK_LEASED|T_FAIL|worker-model-b-01|1791570728.588
+TASK_IMPLEMENTED|T_FAIL|patch-T_FAIL-worker-model-b-01-v1|1791570728.592
+TASK_VERIFIED|T_FAIL|false|Simulated intentional test failure for repair loop test|1791570728.595
+TASK_FAILED|T_FAIL|Verification failed with exit code 1|2|1791570728.598
+TASK_LEASED|T_FAIL|worker-model-b-01|1791570728.602
+TASK_IMPLEMENTED|T_FAIL|patch-T_FAIL-worker-model-b-01-v1|1791570728.606
+TASK_VERIFIED|T_FAIL|false|Simulated intentional test failure for repair loop test|1791570728.609
+TASK_FAILED|T_FAIL|Verification failed with exit code 1|3|1791570728.613
+TASK_BLOCKED|T_FAIL|Verification failed with exit code 1|1791570728.616
+TASK_LEASED|T_OK1|worker-model-b-01|1791570728.633
+TASK_IMPLEMENTED|T_OK1|patch-T_OK1-worker-model-b-01-v1|1791570728.638
+TASK_VERIFIED|T_OK1|true||1791570730.571
+TASK_ACCEPTED|T_OK1|evidence/T_OK1_verified.md|1791570731.329
+TASK_LEASED|T_DEP|worker-model-b-01|1791570731.346
+TASK_IMPLEMENTED|T_DEP|patch-T_DEP-worker-model-b-01-v1|1791570731.351
+TASK_VERIFIED|T_DEP|true||1791570733.375
+TASK_ACCEPTED|T_DEP|evidence/T_DEP_verified.md|1791570734.189
+TASK_LEASED|T_OK2|worker-model-b-01|1791570734.206
+TASK_IMPLEMENTED|T_OK2|patch-T_OK2-worker-model-b-01-v1|1791570734.211
+TASK_VERIFIED|T_OK2|true||1791570736.170
+TASK_ACCEPTED|T_OK2|evidence/T_OK2_verified.md|1791570736.946

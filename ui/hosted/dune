@@ -1,0 +1,4 @@
+(library
+ (name inos_ui)
+ (modules hosted_server clarification_ui preview_ui unified_intent_view clarification_flow adapter_dashboard)
+ (libraries inos_ir inos_memory inos_models inos_operation inos_scp unix str))

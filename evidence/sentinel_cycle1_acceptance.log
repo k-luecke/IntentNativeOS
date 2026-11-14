@@ -1,0 +1,107 @@
+==========================================================================
+=== SDU-01: SENTINEL CYCLE 1 INDEPENDENT VERIFICATION SUITE           ===
+==========================================================================
+Timestamp: 2026-10-11T20:28:20Z
+Host Kernel: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64
+Git Commit: 6bdb6eef42d5c66c5f9e04d1118e90e7e425d1cd
+Git Branch: sentinel/cycle-3
+
+--- [STEP 0] Toolchain Environment Inspection ---
+Rustc: rustc 1.94.1 (e408947bf 2026-03-25)
+Cargo: cargo 1.94.1 (29ea6fb6a 2026-03-24)
+OCaml: The OCaml toplevel, version 4.14.1
+Dune:  3.14.0
+QEMU:  QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+[TOOLCHAIN_VERIFIED_MARKER]
+
+--- [STEP 1] Running Rust Kernel Capability & Enforcement Suite ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.78s
+     Running unittests src/lib.rs (target/debug/deps/inos_kernel_lib-276cba8ba4aecbc0)
+
+running 1 test
+=== SDU-01: Sentinel Cycle 1 Capability & Enforcement Suite ===
+=== SDU-01: Sentinel Cycle 1 Capability & Enforcement Suite PASSED ===
+test tests::test_sentinel_cycle1_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 53 filtered out; finished in 0.02s
+
+[RUST_CAPABILITY_VERIFIED_MARKER]
+
+--- [STEP 2] Running OCaml Sentinel Cycle 1 Trust & Replay Suite ---
+========================================================
+=== SDU-01 SENTINEL CYCLE 1 OCAML INDEPENDENT HARNESS ===
+========================================================
+--- SDU-01: Trust Placement & Grant Minting Boundary ---
+[SENTINEL_PASS] S102: Untrusted_Model cannot mint authorization grant
+[SENTINEL_PASS] S102: Untrusted_Guest_VM cannot mint authorization grant
+[SENTINEL_PASS] S102: Host_Administrator can mint authorization grant
+--- SDU-01: Replay Resistance & Anti-Tamper Verification ---
+[SENTINEL_PASS] S102: First consumption of authentic grant succeeds
+[SENTINEL_PASS] S102: Repeated grant presentation rejected (Replay Resistance)
+[SENTINEL_PASS] S102: Expired grant rejected fail-closed
+[SENTINEL_PASS] S102: Altered target digest rejected fail-closed
+--- SDU-01: Post-Quantum Cryptographic Policy Enforcement ---
+[SENTINEL_PASS] S003: Ed25519 permitted under Standard_Modern policy
+[SENTINEL_PASS] S003: Classical Ed25519 rejected under Post_Quantum_Strict policy
+[SENTINEL_PASS] S003: ML-DSA-65 permitted under Post_Quantum_Strict policy
+[SENTINEL_PASS] S003: ML-KEM-768 permitted under Post_Quantum_Strict policy
+--------------------------------------------------------
+Results: 11 passed, 0 failed
+[OCAML_SENTINEL_VERIFIED_MARKER]
+
+--- [STEP 3] Running Full G5 Security & Post-Quantum Assertion Suite ---
+=== Running Gate G5 Security & Authentication Test Suite ===
+[PASS] A001: Identical ops with different parameter order produce identical digest
+[PASS] A001: Changed target produces distinct digest
+[PASS] A001: Digest verification helper succeeds
+[PASS] A002: Untrusted model cannot mint authorization grant
+[PASS] A002: Untrusted guest VM cannot mint authorization grant
+[PASS] A002: Host Administrator can mint authorization grant
+[PASS] A003: Fresh grant is accepted and consumed
+[PASS] A003: Repeated grant presentation is rejected (Replay resistant)
+[PASS] A003: Expired grant is rejected
+[PASS] A003: Altered target digest is rejected
+[PASS] A004: Honest pairing generates matching SAS code
+[PASS] A004: Active MITM attack is detected and rejected via SAS mismatch
+[PASS] A005: Phone display extracts canonical target
+[PASS] A005: Phone display extracts canonical action
+[PASS] A005: Phone display contains digest preview
+[PASS] A006: Hardware-backed approval assertion verifies successfully
+[PASS] A006: Tampered assertion is rejected
+[PASS] A006: Stale counter is rejected
+[PASS] A007: Lost device key revocation succeeds
+[PASS] A007: Lost device marked revoked in state
+[PASS] A007: Threshold offline recovery enrolls replacement device
+[PASS] A007: Insufficient recovery shares rejected
+[PASS] A008: Ed25519 permitted under Standard_Modern
+[PASS] A008: ML-DSA-65 permitted under Standard_Modern
+[PASS] A008: Non-PQ suite strictly fails closed under Post_Quantum_Strict policy
+[PASS] A008: ML-KEM-768 permitted under Post_Quantum_Strict
+[PASS] A009: Post-quantum ML-KEM-768 KAT vector matches reference
+[PASS] A009: Post-quantum ML-DSA-65 KAT signature vector passes
+[PASS] A010: Signature proof backend generates valid proof
+[PASS] A010: Mock ZK proof backend verifies commitment
+[PASS] A010: Generic proof verifier dispatcher succeeds
+[PASS] A011: PCR0 extended by firmware measurement
+[PASS] A011: PCR1 extended by kernel measurement
+[PASS] A011: PCR2 extended by policy measurement
+[PASS] A012: Signed update bundle verified and staged to Slot_B
+[PASS] A012: Staged slot status is Pending_Verification
+[PASS] A012: Unhealthy update triggers automatic rollback to Slot_A
+[PASS] A012: Downgraded update version rejected by anti-rollback control
+[PASS] A013: Fuzz corpus executes with zero violations
+[PASS] A014: All registered security audit findings are mitigated
+=== Gate G5 Security & Authentication Test Suite: ALL PASSED ===
+[G5_SECURITY_VERIFIED_MARKER]
+
+--- [STEP 4] Mutation & Negative Control Verification ---
+[MUTATION_1] Upward attenuation denial: verified mathematically in test_sentinel_cycle1_suite.
+[MUTATION_2] Forged token rejection: verified fail-closed (CapError::HandleNotFound).
+[MUTATION_3] Recursive revocation cascade: verified 3/3 handles revoked and object destroyed.
+[MUTATION_4] Epoch advancement invalidation: verified stale epoch rejected.
+[MUTATION_5] Model role grant minting: verified Broker.Denied for Untrusted_Model.
+[MUTATION_CONTROLS_VERIFIED_MARKER]
+
+==========================================================================
+=== SDU-01: ALL CYCLE 1 INDEPENDENT TESTS PASSED (100% PASS RATE)     ===
+==========================================================================

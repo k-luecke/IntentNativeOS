@@ -1,0 +1,4 @@
+(library
+ (name inos_scp)
+ (modules scp_projection)
+ (libraries))

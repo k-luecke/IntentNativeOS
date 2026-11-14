@@ -1,0 +1,746 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+
+==================================================
+=== [INOS KERNEL BOOT] - x86-64 Intent-Native OS ===
+==================================================
+[SERIAL] 16550 UART initialized at port 0x3F8 (115200 8N1).
+[BOOT] UEFI firmware entry reached in 64-bit long mode.
+[PLATFORM] Target: x86-64 QEMU/OVMF virtual reference platform.
+[STATUS] Kernel image verification successful.
+[INOS_BOOT_OK_MARKER_v0.1]
+[GOP] UEFI Graphics Output Protocol located: 1280x800 (pitch: 1280), FB base: 0x0x0000000080000000
+[UEFI_GOP_HARDWARE_FRAMEBUFFER_DISCOVERED_MARKER_v0.1]
+[MEM] UEFI GetMemoryMap succeeded. Size: 6000 bytes, DescSize: 48
+[MEM] Normalized regions count: 29
+[MEM] Total usable RAM: 1014 MB, Reserved: 12301 MB
+[MEM_MAP_CAPTURED_MARKER_v0.1]
+[PAGE_TABLES] PML4_RENDER initialized (CPL=3 isolated PML4 at 0x0x000000003df7d000)
+[PAGE_TABLES] Physical memory disjointness verification: PASSED. Zero frame aliases detected.
+[PAGE_TABLES] W^X permission verification: PASSED. Zero pages are both writable and executable.
+[PAGE_TABLES] Stack guard page verification: PASSED. Flanking guard pages non-present.
+[PAGING] 4-level x86-64 page tables initialized.
+[PAGING] Identity translation verified: virt 0x0000000000200000 -> phys 0x0000000000200000
+[PAGING_INITIALIZED_MARKER_v0.1]
+[IDT] Initializing Interrupt Descriptor Table...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0x0000deadbeef0000
+[PF_DIAG] Error Code: 0x0000000000000002 (Present=0, Write=1, User=0)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[TIMER] 8259 PIC remapped: master 0x20-0x27, slave 0x28-0x2F.
+[TIMER] PIT channel 0 initialized at 100 Hz.
+[TIMER] Monotonic ticks: t1=0, t2=15, t3=40 (strictly monotonic: true)
+[MONOTONIC_TIMER_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] Initialized physical frame allocator from UEFI memory map.
+[FRAME_ALLOC] Total free frames: 249753 (975 MB usable RAM)
+[FRAME_ALLOC] Base frame allocation test: allocated frame at 0x0x0000000000001000
+[FRAME_ALLOC] Base frame free test: frame freed successfully.
+[FRAME_ALLOCATOR_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] High-memory allocation above 256 MiB boundary succeeded: 0x0x0000000020000000 (512 MiB physical)
+[HIGH_MEMORY_ABOVE_256MB_VERIFIED_MARKER]
+[FRAME_ALLOC] Multi-page contiguous allocation succeeded (256 frames / 1 MiB at 0x0x0000000000100000)
+[FRAME_ALLOC] Multi-page contiguous frames cleanly reclaimed.
+[CONTIGUOUS_MODEL_WEIGHT_ALLOC_VERIFIED_MARKER]
+[VMM] Testing virtual memory mapping / unmapping API...
+[VMM] Initial unmapped page verification: None (as designed).
+[VMM] Mapped user virt 0x0000600000000000 -> phys 0x0000000000001000 with WRITABLE|USER_ACCESSIBLE.
+[VMM] Translation verified successfully: virt maps to allocated frame.
+[VMM] Unmapped user page. Freed phys: 0x0000000000001000
+[VMM] Unmapped user page access faults as designed (translation is None, TLB flushed).
+[VM_MAPPING_VERIFIED_MARKER_v0.1]
+[VMM_RANGE] Testing multi-page map_range, protect_range (W^X), and unmap_range...
+[VMM_RANGE] Allocated 16 contiguous frames at phys 0x0x0000000000005000
+[VMM_RANGE] Mapped 16 pages at virt 0x0x0000700000000000 (WRITABLE|USER_ACCESSIBLE)
+[VMM_RANGE] Enforced hardware W^X on model weights: WRITABLE cleared, NO_EXECUTE set (bit 63).
+[HARDWARE_WX_PROTECT_RANGE_VERIFIED_MARKER]
+[VMM_RANGE] Cleanly unmapped all 16 pages and reclaimed physical frames.
+[VMM_RANGE] Verified translation is None after unmap_range.
+[NATIVE_RESIDENCY_VMM_VERIFIED_MARKER]
+[PRETRAINED_MODEL] Probing for hardware model drive via PCI (VirtIO-blk)...
+[VIRTIO_BLK] No valid VirtIO-blk model device detected on PCI. Error: PciNotMatched
+[WEB_01A] Initializing native network stack & probing VirtIO-Net...
+[NET_INIT] VirtIO-Net not found on PCI bus; using deterministic loopback network.
+[WEB_01B] Initializing CMOS RTC clock & hardware entropy CSPRNG...
+[CRYPTO] RFC 8439 ChaCha20 Known Answer Test passed: Primitive verified.
+[DRBG_RFC8439_KAT_VERIFIED_MARKER]
+[CRYPTO] DRBG Construction state transition & key erasure verified against reference vectors.
+[DRBG_CONSTRUCTION_KAT_VERIFIED_MARKER]
+[ENTROPY] Hardware entropy probe: RDRAND=YES, RDSEED=YES
+[ENTROPY] Hardware entropy source initialized: HW_READY (hardware entropy source initialized)
+[ENTROPY_HARDWARE_READY_MARKER_v1.0]
+[PRETRAINED_MODEL] Probing fallback hardware model drive on secondary IDE channel (0x170)...
+[PRETRAINED_MODEL] Secondary ATA drive detected at port 0x170.
+[MODEL_TRANSPORT] Selected transport: Batched ATA PIO (Port 0x170)
+[MODEL_TRANSPORT_ERROR] Failed to read header block 0
+[PRETRAINED_MODEL_ERROR] Secondary ATA ingestion failed!
+[MODEL_FREE_BASELINE_ACTIVE] Model weights omitted; deterministic document editor & storage operational.
+[SMP] Detecting multicore topology via ACPI / firmware...
+[SMP] Total processors detected: 2, Local APIC base: 0x00000000fee00000
+[SMP] Core 0 (BSP): online.
+[SMP] Booting secondary AP Core 1...
+[SMP] Core 1 online: reported all expected cores (2/2).
+[MULTICORE_BOOT_VERIFIED_MARKER_v0.1]
+[SCHED] Initializing per-core scheduler for Core 0...
+[SCHED] Spawned two synthetic workers (id=1, id=2).
+[SCHED] Initial schedule selected worker index 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Verified: two synthetic workers progress and yield cooperatively.
+[SCHEDULER_VERIFIED_MARKER_v0.1]
+[USER_ISOLATION] Validating user-mode address space privilege boundaries...
+[USER_ISOLATION] User-mode access to kernel address 0xFFFF800000000000 rejected.
+[USER_MODE_ISOLATION_VERIFIED_MARKER_v0.1]
+[SYSCALL] Initializing Syscall Gate and ABI Dispatcher...
+[SYSCALL] ABI v1.0 verified; unknown syscall 0x9999 rejected.
+[SYSCALL_GATE_VERIFIED_MARKER_v0.1]
+[IPC] Testing typed IPC messages and bounded queues...
+[IPC] Bounded send/receive and in-flight cancellation verified.
+[IPC_BOUNDED_QUEUE_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Initializing capability table and object tracking...
+[CAPABILITY] Unowned capability access by PID 2 denied.
+[CAPABILITY_BOUND_ACCESS_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Revoked child capability lost access immediately.
+[CAPABILITY_REVOCATION_VERIFIED_MARKER_v0.1]
+[LIFECYCLE] Object reference count reached 0; reclaimed without leaks.
+[OBJECT_LIFECYCLE_REFCOUNT_VERIFIED_MARKER_v0.1]
+[ELF_LOADER] Loading approved user-mode ELF binary...
+[ELF_LOADER] Independently built ELF loaded: size=4832 bytes, entry=0x0x0000000000400000
+[ELF_LOADER_VERIFIED_MARKER_v0.1]
+[RING3] Executing independently compiled ELF in user mode (CPL=3)...
+[RING3] Syscall boundary crossed: SYS_GET_VERSION returned 0x0100.
+[RING3] User-space attempted access to protected kernel space (0xFFFF800000000000)...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0xffff800000000000
+[PF_DIAG] Error Code: 0x0000000000000004 (Present=0, Write=0, User=1)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[PF_DIAG] User-mode fault safely contained by kernel.
+[RING3_KERNEL_ACCESS_BLOCKED_MARKER_v0.1]
+[RING3] User task contained; kernel and sibling services remain running.
+[RING3_USER_ISOLATION_VERIFIED_MARKER_v0.1]
+[OCAML_RUNTIME_LOADER] Loading native compiled OCaml intent runtime ELF...
+[OCAML_RUNTIME_LOADER] OCaml Ring 3 ELF loaded: size=34704 bytes, entry=0x0x000000000040081d
+[OCAML_RING3_BINARY_VALIDATED_MARKER_v0.1]
+[SECURITY] Testing capability enforcement on Ring 3 file write...
+[KERNEL_SYSCALL] SYS_FILE_CREATE: PermissionDenied for '              '
+[SECURITY] Unauthorized Ring 3 syscall safely rejected with PermissionDenied.
+[CAPABILITY_DENIAL_VERIFIED_MARKER_v0.1]
+[OCAML_RING3] Executing native compiled OCaml intent processor in user mode (CPL=3)...
+[RING3_OCAML_AB] Commencing native Ring 3 dual-model intent arbitration...
+[RING3_OCAML_AB] === TEST 1: Ambiguous intent ('clean up old project files') ===
+[RING3_OCAML_AB] Role A identified candidate operations and ambiguity.
+[RING3_OCAML_AB] Role B challenged unsupported deletion assumptions.
+[RING3_OCAML_AB] Model B challenged proposal. Halting execution. Escalated to user clarification receipt.
+[RING3_OCAML_AB] Zero capabilities issued for ambiguous intent.
+[RING3_OCAML_AB] === TEST 2: Valid create intent ('create os_changes.txt') ===
+[RING3_OCAML_AB] Role A synthesized candidate plan.
+[RING3_OCAML_AB] Role B approved proposal. Validating capability against kernel contract...
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized by capability token 2
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 65 bytes to INOS-FS with persistent receipt
+[RING3_OCAML_AB] Deterministic verifier passed. Emitting authorized Ring 3 syscall...
+[OCAML_RING3] OCaml intent transformed into authorized file operation via syscalls.
+[GAP_G7_02_CLOSED_OCAML_RING3_EXECUTION_VERIFIED]
+[L404_NATIVE_OCAML_AB_ORCHESTRATION_VERIFIED]
+
+[RING3_OCAML] === TEST 3: Native Ring 3 Model Weight Residency & Hardware W^X ===
+[RING3_TRANSFORMER] Running in pure Model-Free Habitable Computing baseline.
+[MODEL_FREE_BASELINE_VERIFIED_MARKER]
+[PROCESS] Initializing process manager and lifecycle primitives...
+[PROCESS] Task A exited with code 42, successfully reaped by parent.
+[PROCESS_LIFECYCLE_VERIFIED_MARKER_v0.1]
+[FAULT_RECOVERY] Testing fault containment for user tasks...
+[FAULT_RECOVERY] Faulting task terminated; sibling task remains running.
+[FAULT_CONTAINMENT_VERIFIED_MARKER_v0.1]
+[SUPERVISOR] Simulating critical service crash and supervisor recovery...
+[SUPERVISOR] Critical service restarted automatically with PID 5
+[BOOT_SUPERVISOR_VERIFIED_MARKER_v0.1]
+[AUDIT_LOG] Verifying deterministic kernel event log...
+[AUDIT_LOG] Kernel event stream confirmed sequential and tamper-auditable.
+[EVENT_LOGGING_VERIFIED_MARKER_v0.1]
+[FUZZ] Running seed corpus against syscall and IPC parsers...
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000000000 pages=1 (min_phys >= 0x0xaaaa5555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0xffff800000000000 pages=18446603336221196289 (min_phys >= 0x0x5555d555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[FUZZ] Successfully ran 64 fuzzed mutations with zero kernel panics.
+[FUZZ_CORPUS_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G2T: BOOTABLE ISOLATION GATE VERIFIED] ===
+==================================================
+[GATE_G2T] x86-64 microkernel booted successfully under QEMU/OVMF.
+[GATE_G2T] Two userspace tasks executed in isolated address spaces.
+[GATE_G2T] Kernel space and unowned capabilities protected fail-closed.
+[GATE_G2_ISOLATION_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G3: NATIVE OS SERVICES AND USABLE MVP] ===
+==================================================
+[STORAGE] Initializing block device abstraction (256 blocks, 512 B/sector)...
+[STORAGE] Block read/write roundtrip verified at LBA 4.
+[BLOCK_DEVICE_VERIFIED_MARKER_v0.1]
+[FS] Formatting persistent filesystem driver (INOS-FS)...
+[FS] Create/read/rename/delete lifecycle confirmed across simulated mount.
+[FILESYSTEM_OPERATIONS_VERIFIED_MARKER_v0.1]
+[WAL] Executing atomic write and power-loss crash recovery tests across 5 boundaries...
+[WAL_BOUNDARY_1] Power cut at uncommitted prepare: uncommitted write discarded on recovery.
+[WAL_BOUNDARY_2] Power cut after commit before target write: committed write replayed on recovery.
+[WAL_BOUNDARY_3] Repeated recovery idempotency: identical filesystem state preserved.
+[WAL_BOUNDARY_4] Corrupted journal record: safely rejected fail-closed without corrupting storage.
+[WAL_BOUNDARY_5] Unrelated file preservation: kernel_spec.txt byte integrity 100% intact.
+[WAL] Injected crash preserved committed state; atomic WAL verified.
+[ATOMIC_CRASH_RECOVERY_VERIFIED_MARKER_v0.1]
+[F105_WAL_CRASH_RECOVERY_ALL_BOUNDARIES_VERIFIED_MARKER]
+[FS-CAPACITY-02] Initiating extended multi-block crash injection and durability audit...
+[FS_CAPACITY_02_CRASH_UNCOMMITTED_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_MIDSTREAM_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_PRE_PUBLISH_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_COMMITTED_VERIFIED_MARKER]
+[FS_CAPACITY_02_CORRUPT_POINTER_REJECTED_MARKER]
+[FS_CAPACITY_02_ALL_BOUNDARIES_VERIFIED_MARKER]
+[FS-CAPACITY-03] Executing 6-boundary crash durability & recovery suite...
+[FS_CAPACITY_03_SUITE_STARTED_MARKER]
+[FS_CAPACITY_03_BOUNDARY_1_INDIRECT_ALLOC_MARKER]
+[FS_CAPACITY_03_BOUNDARY_2_MULTIBLOCK_PAYLOAD_MARKER]
+[FS_CAPACITY_03_BOUNDARY_3_INODE_PUBLICATION_MARKER]
+[FS_CAPACITY_03_BOUNDARY_4_WAL_COMMIT_RECORD_MARKER]
+[FS_CAPACITY_03_BOUNDARY_5_JOURNAL_REPLAY_INTERRUPT_MARKER]
+[FS_CAPACITY_03_BOUNDARY_6_INTERRUPTED_APP_SAVE_MARKER]
+[FS_CAPACITY_03_INTEGRITY_AUDIT_PASS_MARKER]
+[FS_CAPACITY_03_ALL_BOUNDARIES_VERIFIED_MARKER]
+[PERSISTENCE] Checking for hardware ATA block device on secondary channel...
+[PERSISTENCE] ATA IDE Primary Slave detected (16 MB raw disk attached).
+[NET] Initializing network stack adapter & loopback socket...
+[NET] QEMU loopback ICMP ping and TCP 3-way handshake verified.
+[NETWORK_LOOPBACK_VERIFIED_MARKER_v0.1]
+[INPUT] Initializing keyboard and pointer input event path...
+[INPUT] Key and pointer events routed into isolated UI event queue.
+[INPUT_EVENT_PATH_VERIFIED_MARKER_v0.1]
+[GRAPHICS] Initializing linear RGB framebuffer output...
+[GRAPHICS] Graphical framebuffer rendering test pattern verified.
+[FRAMEBUFFER_DISPLAY_VERIFIED_MARKER_v0.1]
+[COMPOSITOR] Creating dual window surfaces with rectangular clipping...
+[COMPOSITOR] Dual window surfaces rendered and clipped with correct z-order.
+[COMPOSITOR_SURFACES_VERIFIED_MARKER_v0.1]
+[UI] Rendering bitmap font glyphs and testing keyboard input widgets...
+[UI] Bitmap text rendering and keyboard input widget navigation verified.
+[FONT_RENDER_WIDGETS_VERIFIED_MARKER_v0.1]
+[G9_WORKFLOW] Initializing Human-Operated Native Workflow engine...
+[G9_WORKFLOW] Stage 1: Initializing INOS-FS on primary ATA slave...
+[G9_FS_FORMATTED_OK]
+[G9_AWAITING_DOC_NAME]
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000017 -> 'i'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000031 -> 'n'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001f -> 's'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000002e -> 'c'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000013 -> 'r'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000017 -> 'i'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000019 -> 'p'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000000b -> '0'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000008 -> '7'
+[G9_KEYBOARD_HW] Enter key (0x1C) received. Line committed.
+[G9_DOC_NAME_ACCEPTED] Document Name: 'intscript07'
+[G9_AWAITING_DOC_CONTENT]
+[G9_KEYBOARD_HW] Enter key (0x1C) received. Line committed.
+[G9_KEYBOARD_HW] Input window completed; text buffer: 'Habitable computing without AI dependencies.'
+[G9_DOC_CONTENT_ACCEPTED] Arbitrary Content: 'Habitable computing without AI dependencies.'
+[G9_STAGE1_TYPED_RENDERED]
+[APP_SCRIPT_007_WORKFLOW] Stage 1: Adversarial Reliability, Kernel Quotas & Transaction Recovery (APP-SCRIPT-007)...
+[APP_SCRIPT_007_STAGE1_STARTED_MARKER_v1.0]
+[SECURITY_POLICY] APPROVED: Policy granted MIGRATE_ADMIN capability to verified package manager (PID=50).
+[SECURITY_MIGRATION] Received package migration request from PID=50...
+[SECURITY_MIGRATION] Authenticated package migration: 'org.inos.script' -> 'org.inos.intscript'
+[SECURITY_MIGRATION] Phase 1: Validating installed package manifest and scheduled jobs...
+[SECURITY_MIGRATION] Phase 2: Transactionally transferring jobs, receipts & history to 'org.inos.intscript'...
+[SECURITY_MIGRATION] Migration committed: 'org.inos.script' -> 'org.inos.intscript'. Legacy privileges retired.
+[INTSCRIPT_TRANSACTIONAL_MIGRATION_VERIFIED_MARKER]
+[APP_SCRIPT_SECURITY] Testing Kernel CSPRNG 128-Bit Capability Token Generation...
+[APP_SCRIPT_SECURITY] Issued CSPRNG token 1: 0x0xa113f62655a5036b0x62155cebdf44ee12, token 2: 0x0x5ceaec731eddf39b0x0378837b4abb578e
+[APP_SCRIPT_SECURITY] CSPRNG token unpredictability verified: non-linear, cryptographically high-entropy 128-bit tokens.
+[CSPRNG_TOKEN_UNPREDICTABILITY_VERIFIED_MARKER]
+[APP_SCRIPT_006] Constant-time 128-bit token comparison verified.
+[CONSTANT_TIME_TOKEN_EQ_VERIFIED_MARKER]
+[APP_SCRIPT_SECURITY] Forged capability token rejected fail-closed (HandleNotFound).
+[CAPABILITY_TOKEN_FORGERY_REJECTED_MARKER]
+[APP_SCRIPT_SECURITY] Foreign-process token access rejected fail-closed (PID 700 cannot use PID 601 token).
+[CAPABILITY_PROCESS_ISOLATION_VERIFIED_MARKER]
+[APP_SCRIPT_006] Process generation binding verified: expired generation rejected fail-closed.
+[PROCESS_GENERATION_BINDING_VERIFIED_MARKER]
+[KERNEL_TX] Began transaction tx_id=1 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'staged_ghost.txt' in tx_id=1
+[KERNEL_TX] Staged 13 bytes for 'staged_ghost.txt' in tx_id=1 (Total staged: 13 bytes)
+[KERNEL_TX] TX #1 ROLLED BACK: Staged operations discarded; zero filesystem mutations visible.
+[KERNEL_TX_ROLLBACK_VERIFIED_MARKER]
+[APP_SCRIPT_006] Kernel transaction staging isolation & rollback verified: zero partial mutations.
+[KERNEL_TX_ROLLBACK_VERIFIED_MARKER]
+[APP_SCRIPT_007_WORKFLOW] Stage 1: Adversarial Reliability, Kernel Quotas & Transaction Recovery (APP-SCRIPT-007)...
+[APP_SCRIPT_007_STAGE1_STARTED_MARKER_v1.0]
+[APP_SCRIPT_007] Running ChaCha20 DRBG Construction KATs...
+[APP_SCRIPT_007] ChaCha20 DRBG construction state transition vectors verified.
+[DRBG_CONSTRUCTION_KAT_VERIFIED_MARKER]
+[APP_SCRIPT_007] Fast Key Erasure and Backtracking Resistance verified.
+[DRBG_FAST_KEY_ERASURE_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Hardware Entropy Exhaustion / Stuck-bit Fail-Closed...
+[APP_SCRIPT_007] Unready entropy pool fails closed with Err (zero degraded entropy disclosed).
+[ENTROPY_FAIL_CLOSED_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Kernel Process Memory Quota...
+[APP_SCRIPT_007] Charged 2 pages within memory ceiling (2 pages).
+[RESOURCE_QUOTA] Process PID 901 exceeded memory ceiling (requested 3 pages > max 2)! Rejection fail-closed.
+[KERNEL_MEMORY_QUOTA_EXCEEDED_MARKER]
+[APP_SCRIPT_007] Memory quota exceeded rejected fail-closed (OutOfMemory).
+[KERNEL_MEMORY_QUOTA_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Kernel Process File Operations Quota...
+[RESOURCE_QUOTA] Process PID 901 exceeded file-operations limit (count=4 > max=3)! Rejection fail-closed.
+[KERNEL_FILE_OP_QUOTA_EXCEEDED_MARKER]
+[APP_SCRIPT_007] File op quota exceeded rejected fail-closed (QuotaExceeded).
+[KERNEL_FILE_OP_QUOTA_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Kernel Preemptive CPU Budget & Termination...
+[RESOURCE_QUOTA] Process PID 902 exceeded preemptive CPU budget (consumed 3 >= max 3 ticks)! Terminating runaway process.
+[CPU_BUDGET_EXHAUSTED_TERMINATED_MARKER_v1.0]
+[LIFECYCLE] Reclaiming resources for terminated PID 902...
+[LIFECYCLE] Revoked 0 capability tokens.
+[LIFECYCLE] Deactivated 0 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 902.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 902.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[LIFECYCLE] Reclaiming resources for terminated PID 902...
+[LIFECYCLE] Revoked 0 capability tokens.
+[LIFECYCLE] Deactivated 0 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 902.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 902.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[LIFECYCLE] Reclaiming resources for terminated PID 901...
+[LIFECYCLE] Revoked 0 capability tokens.
+[LIFECYCLE] Deactivated 0 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 901.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 901.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[APP_SCRIPT_007] Process resource reclamation verified: memory, file ops, and CPU budget zeroed.
+[KERNEL_CPU_BUDGET_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Live Generation-based Visibility Barrier...
+[KERNEL_TX] Began transaction tx_id=2 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'barrier_test.txt' in tx_id=2
+[KERNEL_TX] Staged 22 bytes for 'barrier_test.txt' in tx_id=2 (Total staged: 22 bytes)
+[APP_SCRIPT_007] Visibility Barrier verified: active publishing transaction hides partially committed files.
+[KERNEL_TX_LIVE_VISIBILITY_BARRIER_VERIFIED_MARKER]
+[KERNEL_TX] TX #2 ROLLED BACK: Staged operations discarded; zero filesystem mutations visible.
+[KERNEL_TX_ROLLBACK_VERIFIED_MARKER]
+[APP_SCRIPT_007] Testing Duplicate Transaction Rejection...
+[KERNEL_TX] Began transaction tx_id=3 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'dup_f.txt' in tx_id=3
+[KERNEL_TX] Staged 8 bytes for 'dup_f.txt' in tx_id=3 (Total staged: 8 bytes)
+[KERNEL_TX] Committing tx_id=3 (files=1, bytes=8)...
+[KERNEL_TX] TX #3 COMMITTED atomically: 1 files (8 bytes) published to INOS-FS with receipt.
+[KERNEL_TX_ATOMIC_COMMIT_VERIFIED_MARKER]
+[KERNEL_TX_ERROR] Commit failed: Invalid transaction ID or not in Active state.
+[KERNEL_TX_DUPLICATE_COMMIT_REJECTED_MARKER]
+[APP_SCRIPT_007] Duplicate transaction commit rejected fail-closed (InvalidArgument).
+[KERNEL_TX_DUPLICATE_COMMIT_REJECTED_MARKER]
+[APP_SCRIPT_007] Testing 5 Transaction Crash Boundaries...
+[KERNEL_TX] Began transaction tx_id=4 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'b1_file1.txt' in tx_id=4
+[KERNEL_TX] Staged 7 bytes for 'b1_file1.txt' in tx_id=4 (Total staged: 7 bytes)
+[KERNEL_TX_CRASH_INJECTED] Injected crash at Boundary 1 (Torn commit record / CRC corrupt).
+[KERNEL_TX_CRASH_BOUNDARY_1_MARKER]
+[KERNEL_TX_RECOVERY] Journal CRC32 mismatch! Computed: 0x0x000000007daa8fd8, Stored: 0x0x00000000a3073137. Discarding torn/uncommitted transaction.
+[KERNEL_TX_RECOVERY_TORN_RECORD_DISCARDED_MARKER]
+[APP_SCRIPT_007] Boundary 1 verified: torn commit record discarded, 0 files visible.
+[KERNEL_TX_BOUNDARY_1_VERIFIED_MARKER]
+[KERNEL_TX] Began transaction tx_id=5 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'b2_file1.txt' in tx_id=5
+[KERNEL_TX] Staged 9 bytes for 'b2_file1.txt' in tx_id=5 (Total staged: 9 bytes)
+[KERNEL_TX] Staged file create 'b2_file2.txt' in tx_id=5
+[KERNEL_TX] Staged 9 bytes for 'b2_file2.txt' in tx_id=5 (Total staged: 18 bytes)
+[KERNEL_TX_CRASH_INJECTED] Injected crash at Boundary 2 (Flushed commit record, pre-namespace publish).
+[KERNEL_TX_CRASH_BOUNDARY_2_MARKER]
+[KERNEL_TX_RECOVERY] Authoritative WAL commit record verified (CRC32: 0x0x000000004290f119). Replaying transaction tx_id=5...
+[KERNEL_TX_RECOVERY] Replayed file 'b2_file1.txt'
+[KERNEL_TX_RECOVERY] Replayed file 'b2_file2.txt'
+[KERNEL_TX_RECOVERY] Successfully replayed committed transaction tx_id=5 (files=2). Cleaned up journal.
+[KERNEL_TX_RECOVERY_REPLAY_SUCCESS_MARKER]
+[APP_SCRIPT_007] Boundary 2 verified: flushed WAL record replayed, all files published.
+[KERNEL_TX_BOUNDARY_2_VERIFIED_MARKER]
+[KERNEL_TX] Began transaction tx_id=6 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'b3_f1.txt' in tx_id=6
+[KERNEL_TX] Staged 4 bytes for 'b3_f1.txt' in tx_id=6 (Total staged: 4 bytes)
+[KERNEL_TX] Staged file create 'b3_f2.txt' in tx_id=6
+[KERNEL_TX] Staged 4 bytes for 'b3_f2.txt' in tx_id=6 (Total staged: 8 bytes)
+[KERNEL_TX] Staged file create 'b3_f3.txt' in tx_id=6
+[KERNEL_TX] Staged 4 bytes for 'b3_f3.txt' in tx_id=6 (Total staged: 12 bytes)
+[KERNEL_TX] Staged file create 'b3_f4.txt' in tx_id=6
+[KERNEL_TX] Staged 4 bytes for 'b3_f4.txt' in tx_id=6 (Total staged: 16 bytes)
+[KERNEL_TX_CRASH_INJECTED] Injected crash at Boundary 3 (Mid-stream namespace publication: partial files written).
+[KERNEL_TX_CRASH_BOUNDARY_3_MARKER]
+[KERNEL_TX_RECOVERY] Authoritative WAL commit record verified (CRC32: 0x0x00000000c8a718e6). Replaying transaction tx_id=6...
+[KERNEL_TX_RECOVERY] Replayed file 'b3_f1.txt'
+[KERNEL_TX_RECOVERY] Replayed file 'b3_f2.txt'
+[KERNEL_TX_RECOVERY] Replayed file 'b3_f3.txt'
+[KERNEL_TX_RECOVERY] Replayed file 'b3_f4.txt'
+[KERNEL_TX_RECOVERY] Successfully replayed committed transaction tx_id=6 (files=4). Cleaned up journal.
+[KERNEL_TX_RECOVERY_REPLAY_SUCCESS_MARKER]
+[APP_SCRIPT_007] Boundary 3 verified: mid-stream crash replayed, all 4 files published.
+[KERNEL_TX_BOUNDARY_3_VERIFIED_MARKER]
+[KERNEL_TX] Began transaction tx_id=7 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'b4_f1.txt' in tx_id=7
+[KERNEL_TX] Staged 7 bytes for 'b4_f1.txt' in tx_id=7 (Total staged: 7 bytes)
+[KERNEL_TX_CRASH_INJECTED] Injected crash at Boundary 4 (Pre-receipt crash: all files written, receipt omitted).
+[KERNEL_TX_CRASH_BOUNDARY_4_MARKER]
+[KERNEL_TX_RECOVERY] Authoritative WAL commit record verified (CRC32: 0x0x0000000053950382). Replaying transaction tx_id=7...
+[KERNEL_TX_RECOVERY] Replayed file 'b4_f1.txt'
+[KERNEL_TX_RECOVERY] Successfully replayed committed transaction tx_id=7 (files=1). Cleaned up journal.
+[KERNEL_TX_RECOVERY_REPLAY_SUCCESS_MARKER]
+[APP_SCRIPT_007] Boundary 4 verified: pre-receipt crash reconciled, receipt ledger complete.
+[KERNEL_TX_BOUNDARY_4_VERIFIED_MARKER]
+[KERNEL_TX] Began transaction tx_id=8 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'b5_f1.txt' in tx_id=8
+[KERNEL_TX] Staged 7 bytes for 'b5_f1.txt' in tx_id=8 (Total staged: 7 bytes)
+[KERNEL_TX_CRASH_INJECTED] Injected crash at Boundary 5 (Post-receipt crash: files and receipt written, journal retained).
+[KERNEL_TX_CRASH_BOUNDARY_5_MARKER]
+[KERNEL_TX_RECOVERY] Authoritative WAL commit record verified (CRC32: 0x0x00000000d1cb5ce3). Replaying transaction tx_id=8...
+[KERNEL_TX_RECOVERY] Replayed file 'b5_f1.txt'
+[KERNEL_TX_RECOVERY] Successfully replayed committed transaction tx_id=8 (files=1). Cleaned up journal.
+[KERNEL_TX_RECOVERY_REPLAY_SUCCESS_MARKER]
+[APP_SCRIPT_007] Boundary 5 verified: post-receipt crash recovery idempotent (exactly 1 receipt).
+[KERNEL_TX_BOUNDARY_5_VERIFIED_MARKER]
+[KERNEL_TX] Recovery check complete before application startup: zero orphan staged transactions.
+[KERNEL_TX_RECOVERY_CLEAN_MARKER]
+[APP_SCRIPT_007] Interrupted recovery idempotency verified: repeated recovery passes are safe.
+[KERNEL_TX_INTERRUPTED_RECOVERY_IDEMPOTENT_MARKER]
+[KERNEL_TX] Began transaction tx_id=9 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[KERNEL_TX] Staged file create 'script_tx_report.txt' in tx_id=9
+[KERNEL_TX] Staged 41 bytes for 'script_tx_report.txt' in tx_id=9 (Total staged: 41 bytes)
+[KERNEL_TX] Staged file create 'script_tx_audit.log' in tx_id=9
+[KERNEL_TX] Staged 57 bytes for 'script_tx_audit.log' in tx_id=9 (Total staged: 98 bytes)
+[KERNEL_TX] Committing tx_id=9 (files=2, bytes=98)...
+[KERNEL_TX] TX #9 COMMITTED atomically: 2 files (98 bytes) published to INOS-FS with receipt.
+[KERNEL_TX_ATOMIC_COMMIT_VERIFIED_MARKER]
+[APP_SCRIPT_003] Spawning Native Ring 3 IntScript Application (PID 601)...
+[APP_SCRIPT_004] Spawning Native Ring 3 IntScript Application (PID 601)...
+[APP_SCRIPT_005] Spawning Native Ring 3 IntScript Application (PID 601)...
+[APP_SCRIPT_006] Spawning Native Ring 3 IntScript Application (PID 601)...
+[APP_SCRIPT_007] Spawning Native Ring 3 IntScript Application (PID 601)...
+[ELF_LOADER] Loading approved Ring 3 ELF binary (size=131344 bytes, entry=0x0x0000000000400000)...
+[RING3] Switching CPU context to Ring 3 (CPL=3) via iretq: entry=0x0x0000000000400000 user_stack=0x0x00000000005fe000
+[RING3_ENTRY_VERIFIED_MARKER_v1.0]
+[INTSCRIPT_APP] Native Ring 3 INOS IntScript Studio started.
+[INTSCRIPT_STUDIO_LAUNCHED_MARKER]
+[INTSCRIPT_APP] Hardware CPL=3 isolation confirmed.
+[INTSCRIPT_APP] === TEST 0: IntScript Language Subset Conformance ===
+[INTSCRIPT_APP] Conformance verified: arithmetic, string coercion, while loops, conditionals.
+[INTSCRIPT_ENGINE_CONFORMANCE_MARKER]
+[INTSCRIPT_APP] === TEST 1: Authorized Grid Automation (.ints script) ===
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'intscript_grid_out.xlsx' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating 'intscript_grid_out.xlsx' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 2853 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] Scoped file 'intscript_grid_out.xlsx' committed to INOS-FS.
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'script_grid_out.xlsx' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating 'script_grid_out.xlsx' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 2853 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] .ints Grid automation workflow completed and output workbook committed.
+[INTSCRIPT_GRID_WORKFLOW_VERIFIED_MARKER]
+[INTSCRIPT_APP] === TEST 2: Legacy .js Script Execution Compatibility ===
+[INTSCRIPT_APP] Legacy .js script syntax, control flow, and semantics fully verified.
+[INTSCRIPT_LEGACY_JS_COMPAT_MARKER]
+[INTSCRIPT_APP] === TEST 3: Transactional Identity Migration & Security Gates ===
+[INTSCRIPT_APP] Testing deprecated secret constant defense (0x494E4F534D494752)...
+[INTSCRIPT_APP] Knowledge of deprecated constant 0x494E4F534D494752 confers zero privilege (failed closed).
+[INTSCRIPT_DEPRECATED_SECRET_REJECTED_MARKER]
+[INTSCRIPT_APP] Testing self-issuance defense: Studio attempting to acquire MIGRATE_ADMIN...
+[SECURITY_POLICY] REJECT: Authority for 'system:package_migration' cannot be self-issued by ordinary application org.inos.intscript (PID=601).
+[INTSCRIPT_APP] Self-issuance attempt correctly rejected fail-closed (ordinary apps cannot manufacture migration authority).
+[INTSCRIPT_SELF_ISSUANCE_REJECTED_MARKER]
+[INTSCRIPT_APP] Testing unauthorized identity migration (invalid token)...
+[INTSCRIPT_APP] Unauthorized identity migration correctly rejected fail-closed.
+[INTSCRIPT_APP] Testing sandboxed script attempting identity migration...
+[INTSCRIPT_APP] Sandboxed script identity migration attempt rejected fail-closed.
+[INTSCRIPT_MIGRATION_UNAUTHORIZED_REJECTED_MARKER]
+[INTSCRIPT_APP] Testing privilege expansion defense through migration...
+[INTSCRIPT_APP] Privilege expansion request correctly rejected fail-closed.
+[INTSCRIPT_MIGRATION_EXPANSION_REJECTED_MARKER]
+[INTSCRIPT_APP] Testing permanent retirement of legacy 'org.inos.script' permissions...
+[INTSCRIPT_APP] Legacy package privileges confirmed retired and non-reusable.
+[INTSCRIPT_LEGACY_RETIREMENT_VERIFIED_MARKER]
+[INTSCRIPT_APP] Testing capability replay defense (replaying revoked/expired token)...
+[INTSCRIPT_APP] Replay attempt rejected fail-closed (token revoked and unowned).
+[INTSCRIPT_REPLAY_REJECTED_MARKER]
+[INTSCRIPT_APP] Testing interrupted migration fault injection & recovery...
+[SECURITY_MIGRATION] Fault Injection: Interrupted migration detected in Prepared state.
+[SECURITY_MIGRATION] Rolling back transaction... Zero data loss, zero duplicate execution.
+[INTSCRIPT_MIGRATION_RECOVERY_VERIFIED_MARKER]
+[INTSCRIPT_APP] === TEST 4: Script-Level Capability Isolation ===
+[INTSCRIPT_APP] Security policy successfully denied access to private file.
+[PERMISSION_DENIED_VERIFIED]
+[INTSCRIPT_SECURITY_DENIAL_VERIFIED_MARKER]
+[INTSCRIPT_APP] === TEST 5: Instruction Quota & Loop Defense ===
+[INTSCRIPT_APP] Runaway execution interrupted: instruction quota enforced.
+[QUOTA_EXCEEDED_VERIFIED]
+[INTSCRIPT_QUOTA_TERMINATION_VERIFIED_MARKER]
+[INTSCRIPT_APP] === TEST 6: IntScript Scheduler & Durable Receipts ===
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for '/system/jobs.db' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating '/system/jobs.db' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 436 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] Persistent '/system/jobs.db' committed under org.inos.intscript.
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for '/system/script_receipts.db' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating '/system/script_receipts.db' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 84 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] Persistent '/system/script_receipts.db' committed to INOS-FS.
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for '/system/script_history.log' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating '/system/script_history.log' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 256 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] Execution history log written to /system/script_history.log
+[INTSCRIPT_APP] Scheduler database, receipts ledger, and audit log persisted.
+[INTSCRIPT_SCHEDULER_PERSISTED_MARKER]
+[INTSCRIPT_APP] === TEST 7: Multi-App Native Automation Orchestration ===
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_q1.csv' to org.inos.intscript (PID=601)
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized: creating 'sales_q1.csv' in INOS-FS
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 54 bytes to INOS-FS with persistent WAL
+[INTSCRIPT_APP] Input dataset 'sales_q1.csv' initialized.
+[KERNEL_TX] Began transaction tx_id=10 for PID=601 (Quota: 128 KB staged, max 16 files)
+[KERNEL_TX_BEGIN_VERIFIED_MARKER]
+[INTSCRIPT_APP] Initiated atomic multi-file transaction tx_id
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_q1_analyzed.csv' to org.inos.intscript (PID=601)
+[KERNEL_TX] Staged file create 'sales_q1_analyzed.csv' in tx_id=10
+[KERNEL_TX] Staged 93 bytes for 'sales_q1_analyzed.csv' in tx_id=10 (Total staged: 93 bytes)
+[INTSCRIPT_APP] Staged multi-app artifact in transaction: sales_q1_analyzed.csv
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_summary.txt' to org.inos.intscript (PID=601)
+[KERNEL_TX] Staged file create 'sales_summary.txt' in tx_id=10
+[KERNEL_TX] Staged 213 bytes for 'sales_summary.txt' in tx_id=10 (Total staged: 306 bytes)
+[INTSCRIPT_APP] Staged multi-app artifact in transaction: sales_summary.txt
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_report.svg' to org.inos.intscript (PID=601)
+[KERNEL_TX] Staged file create 'sales_report.svg' in tx_id=10
+[KERNEL_TX] Staged 239 bytes for 'sales_report.svg' in tx_id=10 (Total staged: 545 bytes)
+[INTSCRIPT_APP] Staged multi-app artifact in transaction: sales_report.svg
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_package.zip' to org.inos.intscript (PID=601)
+[KERNEL_TX] Staged file create 'sales_package.zip' in tx_id=10
+[KERNEL_TX] Staged 33 bytes for 'sales_package.zip' in tx_id=10 (Total staged: 578 bytes)
+[INTSCRIPT_APP] Staged multi-app artifact in transaction: sales_package.zip
+[KERNEL_TX] Committing tx_id=10 (files=4, bytes=578)...
+[KERNEL_TX] TX #10 COMMITTED atomically: 4 files (578 bytes) published to INOS-FS with receipt.
+[KERNEL_TX_ATOMIC_COMMIT_VERIFIED_MARKER]
+[INTSCRIPT_APP] Atomic multi-file transaction committed with durable receipt.
+[INTSCRIPT_TRANSACTIONAL_WORKFLOW_COMMITTED_MARKER]
+[INTSCRIPT_APP] Grid CSV import/export verified.
+[INTSCRIPT_GRID_CSV_IMPORT_EXPORT_VERIFIED_MARKER]
+[INTSCRIPT_APP] Write document formatting & table export verified.
+[INTSCRIPT_WRITE_DOC_GENERATION_VERIFIED_MARKER]
+[INTSCRIPT_APP] Canvas vector graphic SVG generation verified.
+[INTSCRIPT_CANVAS_SVG_GENERATION_VERIFIED_MARKER]
+[INTSCRIPT_APP] Archive packaging (.zip) verified.
+[INTSCRIPT_ARCHIVE_PACKAGING_VERIFIED_MARKER]
+[INTSCRIPT_APP] Plan task registration verified.
+[INTSCRIPT_PLAN_TASK_REGISTRATION_VERIFIED_MARKER]
+[INTSCRIPT_APP] Integrated multi-application native workflow complete.
+[INTSCRIPT_MULTI_APP_ORCHESTRATION_VERIFIED_MARKER]
+[INTSCRIPT_APP] === TEST 8: 128-Bit CSPRNG Capability Tokens & Syscall Register ABI ===
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_q1_analyzed.csv' to org.inos.intscript (PID=601)
+[SECURITY_POLICY] APPROVED: Policy granted scoped capability for 'sales_report.svg' to org.inos.intscript (PID=601)
+[INTSCRIPT_APP] Ring 3 verified 128-bit cryptographically non-linear CSPRNG tokens from kernel.
+[CSPRNG_USERSPACE_CAPABILITY_TOKENS_VERIFIED_MARKER]
+[CSPRNG_128BIT_TOKENS_VERIFIED_MARKER]
+[KERNEL_SYSCALL] SYS_FILE_READ: PermissionDenied for 'sales_summary.txt'
+[INTSCRIPT_APP] Confirmed 128-bit capability cross-file token restriction fail-closed.
+[INTSCRIPT_CROSS_FILE_TOKEN_RESTRICTION_VERIFIED_MARKER]
+[SECURITY_POLICY] REJECT: Access to protected system metadata target '/system/.legacy_retired' is denied fail-closed.
+[INTSCRIPT_APP] Direct access to /system/.legacy_retired denied fail-closed.
+[INTSCRIPT_DURABLE_RETIREMENT_ENFORCED_MARKER]
+[INTSCRIPT_APP] === TEST 9: Interactive Compositor IntScript Studio ===
+[COMPOSITOR_IPC] Surface registered: id=1 owner_pid=601 (680x440)
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [Stepping: Instruction 1]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '>>> Step Debugger Active - Symbolic Evaluation & Capability Hand'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Program Counter: Step #1 / OpCode: CALL_METHOD'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Redacted Diagnostic Capability Descriptors (Zero Bearer Secret D'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Handle #CAP-01: 'sales_q1_analyzed.csv' [R, W, CREATE] Gen #1 Ep'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Handle #CAP-02: 'sales_report.svg' [R, W, CREATE] Gen #1 Epoch 1'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Active Tx:      STAGED (4 files, 1,280 bytes) | Rollback Safety:'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Symbol Scope:   wb: <ScriptWorkbook 'grid_output.xlsx'>, profit:'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Kernel DRBG:    HW_READY (hardware entropy source initialized)'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [Schedule Configuration Active'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '=== IntScript Scheduler: Automation Job Scheduling Configuration'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Target Script:  main.ints'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Trigger Type:   WorkbookChanged (intscript_grid_out.xlsx)'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Missed Policy:  RunImmediate (Runs on boot if missed)'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Retry Limit:    3 attempts on error / loop detection'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Queue State:    Job #1 Armed in /system/jobs.db [DURABLE]'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [Receipts Ledger View]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '=== IntScript Scheduler: Durable Receipts Ledger (/system/script'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[RECEIPT #1] Job #1 SUCCESS - exit_code: 0, instructions: 4,120'
+[COMPOSITOR_IPC] DrawText received for surface 1: '  Trigger: WorkbookChanged -> intscript_grid_out.xlsx (Formula P'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[RECEIPT #2] Job #2 SUCCESS (Missed Run Catchup on Cold Boot)'
+[COMPOSITOR_IPC] DrawText received for surface 1: '  Trigger: Timestamp Trigger Replayed -> reboot_intscript_out.xl'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [Capability Isolation Active]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '=== IntScript Studio: Capability Manifest & Pre-Run Permissions '
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Authenticated Identity: org.inos.intscript [Verified Process PID'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Kernel Token Source:    CSPRNG Hardware Entropy: HW_READY (256 b'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Diagnostic Handles:     #CAP-01, #CAP-02, #CAP-03, #CAP-04 (Reda'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Scoped Paths:           *.xlsx, *.csv, *.txt, *.zip, *.svg, *.js'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Staging Quota:          128 KB (131,072 bytes) staged per transa'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Strict Deny:            /system/.legacy_retired, /system/jobs.db'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Transaction Subsystem:  INOS-FS Atomic Journal Active (All-or-No'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [API Documentation & Reference'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '=== INOS IntScript Native API Reference (INOS-AUTOMATION-ABI-001'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.grid:    open(path), create(), importCsv(path), exportCsv(p'
+[COMPOSITOR_IPC] DrawText received for surface 1: '              Sheet: get(cell), set(cell, val), setFormula(c, f)'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.write:   createDocument(title), openDocument(path), addHead'
+[COMPOSITOR_IPC] DrawText received for surface 1: '              addTable(rows, cols), setCell(r, c, val), exportTe'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.canvas:  create(w, h), addShape(type, x, y, w, h, col), exp'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.archive: createZip(zip_path, files_list), extractAll(zip_pa'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.plan:    createTask(title, due, priority), listTasks(), add'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.files:   list(dir), exists(path), delete(path)'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[COMPOSITOR_IPC] DrawText received for surface 1: 'INOS IntScript Studio - main.ints [Running...]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '> RUN'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'STEP'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'SCHEDULE'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'AUDIT'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'PERMS'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'DOCS'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: FS_RW]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[CAP: SCHED]'
+[COMPOSITOR_IPC] DrawText received for surface 1: '1'
+[COMPOSITOR_IPC] DrawText received for surface 1: '// INOS IntScript Studio v3.0 - Automation'
+[COMPOSITOR_IPC] DrawText received for surface 1: '2'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'const wb = inos.grid.open("grid_output.xlsx");'
+[COMPOSITOR_IPC] DrawText received for surface 1: '3'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'const sheet = wb.getSheet("Sheet1");'
+[COMPOSITOR_IPC] DrawText received for surface 1: '4'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'sheet.set("B2", 15000);'
+[COMPOSITOR_IPC] DrawText received for surface 1: '5'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'sheet.set("C2", 4200);'
+[COMPOSITOR_IPC] DrawText received for surface 1: '6'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'sheet.setFormula("D2", "=B2-C2");'
+[COMPOSITOR_IPC] DrawText received for surface 1: '7'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'const profit = sheet.evaluate("D2");'
+[COMPOSITOR_IPC] DrawText received for surface 1: '8'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.audit.log("Q1 Recalculated Profit: " + profit);'
+[COMPOSITOR_IPC] DrawText received for surface 1: '9'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'inos.grid.save("intscript_grid_out.xlsx");'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Console Output & Execution History:'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Redacted Debugger: #CAP-01, #CAP-02 active, zero bearer '
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] Kernel Transaction: 4 files staged, committed atomically'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] main.ints evaluated: formula = 10800'
+[COMPOSITOR_IPC] DrawText received for surface 1: '[AUDIT] IntScript Engine Conformance: 100%'
+[COMPOSITOR_IPC] DrawText received for surface 1: 'Ready  |  Quota: 4120 / 250000 ops [OK]  |  VM: IntScript Engine'
+[COMPOSITOR_IPC] PresentFrame committed for surface 1
+[INTSCRIPT_APP] IntScript Studio Compositor surface rendered and presented.
+[INTSCRIPT_UI_SURFACE_RENDERED_MARKER]
+[INTSCRIPT_APP] All IntScript Studio tests, functional expansion, and workflows passed!
+[APP_SCRIPT_003_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_004_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_005_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_006_STAGE1_COMPLETE_MARKER_v1.0]
+[RING3] SYS_EXIT received from user task: exit_code=0. Safely terminating user process.
+[SCHEDULER] Process PID 601 terminated with code 0
+[LIFECYCLE] Reclaiming resources for terminated PID 601...
+[LIFECYCLE] Revoked 14 capability tokens.
+[LIFECYCLE] Deactivated 1 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 601.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 601.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[RING3] User application execution terminated. Exit code: 0
+[RING3_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_007_APP_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_006_APP_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_005_APP_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_004_APP_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_003_APP_CLEAN_EXIT_MARKER_v1.0]
+[APP_SCRIPT_007_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_006_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_005_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_004_STAGE1_COMPLETE_MARKER_v1.0]
+[APP_SCRIPT_003_STAGE1_COMPLETE_MARKER_v1.0]

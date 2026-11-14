@@ -1,0 +1,24 @@
+[package]
+name = "inos_kernel"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Architecture Team"]
+description = "Intent-Native Operating System x86-64 Microkernel & UEFI Bootloader"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = true
+
+[lib]
+name = "inos_kernel_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "inos_kernel"
+path = "src/main.rs"
+
+[dependencies]

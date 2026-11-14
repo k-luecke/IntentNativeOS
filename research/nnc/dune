@@ -1,0 +1,4 @@
+(library
+ (name inos_nnc)
+ (modules nnc_cache)
+ (libraries inos_ipc))

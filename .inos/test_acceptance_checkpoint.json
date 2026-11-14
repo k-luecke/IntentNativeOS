@@ -1,0 +1,11 @@
+{
+  "timestamp": 1791570736.963,
+  "stats": {
+    "ready": 0,
+    "leased": 0,
+    "implemented": 0,
+    "verifying": 0,
+    "accepted": 3,
+    "blocked": 1
+  }
+}

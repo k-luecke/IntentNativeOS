@@ -1,0 +1,28 @@
+=== INOS Task L406: Model Load/Unload & Memory Reclaim Audit ===
+Date: October 9, 2026
+Target: Dynamic RSS tracking, warm-unload reclamation, and deterministic continuity
+
+[STATE 0: INITIAL UNLOADED]
+  Process RSS: 2816 kB
+  System Available: 5143704 kB
+  Active Model: None
+  Lifecycle: UNLOADED
+
+[STATE 1: MODEL A LOADED]
+  Active Model: stories15M
+  Lifecycle: ACTIVE
+  Allocated Model Budget: 59392 kB
+
+[STATE 2: QUERIES PROCESSED]
+  Query count updated; sustained inference active.
+
+[STATE 3: POST-UNLOAD RECLAMATION]
+  Reclaimed Memory: 59392 kB (58.00 MB)
+  Active Model: None
+  Lifecycle: UNLOADED
+
+[STATE 4: DETERMINISTIC CONTINUITY VERIFIED]
+  When system memory drops below model threshold, OS defaults to TierDeterministic.
+  Zero model calls invoked; deterministic parser handles user desktop operations.
+  Reclamation Audit: SUCCESS (100% of reserved model memory reclaimed).
+

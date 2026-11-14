@@ -1,0 +1,3 @@
+(library
+ (name inos_telemetry)
+ (modules metrics))

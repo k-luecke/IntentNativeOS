@@ -1,0 +1,156 @@
+==========================================================================
+=== SDU-01: SENTINEL CYCLE 2 INDEPENDENT VERIFICATION SUITE           ===
+==========================================================================
+Timestamp: 2026-10-11T18:27:30Z
+Host Kernel: Linux 6.6.87.2-microsoft-standard-WSL2 x86_64
+Git Commit: a9588977c01769e0f203b6b64ad306f9ee10c5af
+Git Branch: sentinel/cycle-2
+
+--- [STEP 0] Toolchain Environment Inspection ---
+Rustc: rustc 1.94.1 (e408947bf 2026-03-25)
+Cargo: cargo 1.94.1 (29ea6fb6a 2026-03-24)
+OCaml: The OCaml toplevel, version 4.14.1
+Dune:  3.14.0
+[TOOLCHAIN_VERIFIED_MARKER]
+
+--- [STEP 1] Running Rust Kernel Native Firewall Suite (S201) ---
+   Compiling inos_kernel v0.1.0 (kernel)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.91s
+     Running unittests src/lib.rs (target/debug/deps/inos_kernel_lib-276cba8ba4aecbc0)
+
+running 1 test
+=== SDU-01: Sentinel Cycle 2 Native Firewall Suite (S201) ===
+=== SDU-01: Sentinel Cycle 2 Native Firewall Suite PASSED ===
+test tests::test_sentinel_cycle2_firewall_suite ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 52 filtered out; finished in 0.01s
+
+[RUST_FIREWALL_VERIFIED_MARKER]
+
+--- [STEP 2] Running OCaml Sentinel Cycle 2 Suite (S103, S301, S502) ---
+=========================================================
+SDU-01: Sentinel Cycle 2 Independent Verification Suite  
+Scope: S103 (Audit), S301 (FIDO2), S502 (Agent Boundaries)
+=========================================================
+
+=== SDU-01 S103: Security Audit Journal & Hash Chaining ===
+[SENTINEL_PASS] S103: Append first audit event succeeds
+[SENTINEL_PASS] S103: Append second audit event succeeds
+[SENTINEL_PASS] S103: Append third audit event succeeds
+[SENTINEL_PASS] S103: Verification of intact hash chain succeeds
+[SENTINEL_PASS] S103: Checkpoint created successfully
+[SENTINEL_PASS] S103: Valid checkpoint verified against journal anchor
+[SENTINEL_PASS] S103: Tampered checkpoint state digest rejected
+[SENTINEL_PASS] S103: Altered event content rejected fail-closed (HashMismatch)
+[SENTINEL_PASS] S103: Crash recovery truncates corrupt tail and recovers 3 valid events
+
+=== SDU-01 S301: Hardware Identity (FIDO2/CTAP2) ===
+[SENTINEL_PASS] S301: Register authentic FIDO2 credential
+[SENTINEL_PASS] S301: Issue fresh challenge record
+[SENTINEL_PASS] S301: Authentic assertion verification succeeds
+[SENTINEL_PASS] S301: Replay of consumed challenge rejected
+[SENTINEL_PASS] S301: Sign counter rollback attack rejected fail-closed
+[SENTINEL_PASS] S301: Classical FIDO2 key rejected under Post_Quantum_Strict policy
+[SENTINEL_PASS] S301: Revoked credential rejected fail-closed
+
+=== SDU-01 S502: Agent Trust Boundaries & Defense-in-Depth ===
+[SENTINEL_PASS] S502: Trusted system instruction remains Clean
+[SENTINEL_PASS] S502: External untrusted document classified as Tainted
+[SENTINEL_PASS] S502: Benign text produces zero threat detections
+[SENTINEL_PASS] S502: Injection patterns detected and redacted
+[SENTINEL_PASS] S502: Tool invocation without grant token denied
+[SENTINEL_PASS] S502: Tool invocation with valid grant token permitted
+[SENTINEL_PASS] S502: Replay of consumed grant token in tool execution denied
+
+=========================================================
+Summary: 23 Passed, 0 Failed
+=========================================================
+[OCAML_CYCLE2_VERIFIED_MARKER]
+
+--- [STEP 3] Running Sentinel Cycle 1 Regression Suite ---
+========================================================
+=== SDU-01 SENTINEL CYCLE 1 OCAML INDEPENDENT HARNESS ===
+========================================================
+--- SDU-01: Trust Placement & Grant Minting Boundary ---
+[SENTINEL_PASS] S102: Untrusted_Model cannot mint authorization grant
+[SENTINEL_PASS] S102: Untrusted_Guest_VM cannot mint authorization grant
+[SENTINEL_PASS] S102: Host_Administrator can mint authorization grant
+--- SDU-01: Replay Resistance & Anti-Tamper Verification ---
+[SENTINEL_PASS] S102: First consumption of authentic grant succeeds
+[SENTINEL_PASS] S102: Repeated grant presentation rejected (Replay Resistance)
+[SENTINEL_PASS] S102: Expired grant rejected fail-closed
+[SENTINEL_PASS] S102: Altered target digest rejected fail-closed
+--- SDU-01: Post-Quantum Cryptographic Policy Enforcement ---
+[SENTINEL_PASS] S003: Ed25519 permitted under Standard_Modern policy
+[SENTINEL_PASS] S003: Classical Ed25519 rejected under Post_Quantum_Strict policy
+[SENTINEL_PASS] S003: ML-DSA-65 permitted under Post_Quantum_Strict policy
+[SENTINEL_PASS] S003: ML-KEM-768 permitted under Post_Quantum_Strict policy
+--------------------------------------------------------
+Results: 11 passed, 0 failed
+[CYCLE1_REGRESSION_VERIFIED_MARKER]
+
+--- [STEP 4] Running Full G5 Security & Cryptographic Suite ---
+=== Running Gate G5 Security & Authentication Test Suite ===
+[PASS] A001: Identical ops with different parameter order produce identical digest
+[PASS] A001: Changed target produces distinct digest
+[PASS] A001: Digest verification helper succeeds
+[PASS] A002: Untrusted model cannot mint authorization grant
+[PASS] A002: Untrusted guest VM cannot mint authorization grant
+[PASS] A002: Host Administrator can mint authorization grant
+[PASS] A003: Fresh grant is accepted and consumed
+[PASS] A003: Repeated grant presentation is rejected (Replay resistant)
+[PASS] A003: Expired grant is rejected
+[PASS] A003: Altered target digest is rejected
+[PASS] A004: Honest pairing generates matching SAS code
+[PASS] A004: Active MITM attack is detected and rejected via SAS mismatch
+[PASS] A005: Phone display extracts canonical target
+[PASS] A005: Phone display extracts canonical action
+[PASS] A005: Phone display contains digest preview
+[PASS] A006: Hardware-backed approval assertion verifies successfully
+[PASS] A006: Tampered assertion is rejected
+[PASS] A006: Stale counter is rejected
+[PASS] A007: Lost device key revocation succeeds
+[PASS] A007: Lost device marked revoked in state
+[PASS] A007: Threshold offline recovery enrolls replacement device
+[PASS] A007: Insufficient recovery shares rejected
+[PASS] A008: Ed25519 permitted under Standard_Modern
+[PASS] A008: ML-DSA-65 permitted under Standard_Modern
+[PASS] A008: Non-PQ suite strictly fails closed under Post_Quantum_Strict policy
+[PASS] A008: ML-KEM-768 permitted under Post_Quantum_Strict
+[PASS] A009: Post-quantum ML-KEM-768 KAT vector matches reference
+[PASS] A009: Post-quantum ML-DSA-65 KAT signature vector passes
+[PASS] A010: Signature proof backend generates valid proof
+[PASS] A010: Mock ZK proof backend verifies commitment
+[PASS] A010: Generic proof verifier dispatcher succeeds
+[PASS] A011: PCR0 extended by firmware measurement
+[PASS] A011: PCR1 extended by kernel measurement
+[PASS] A011: PCR2 extended by policy measurement
+[PASS] A012: Signed update bundle verified and staged to Slot_B
+[PASS] A012: Staged slot status is Pending_Verification
+[PASS] A012: Unhealthy update triggers automatic rollback to Slot_A
+[PASS] A012: Downgraded update version rejected by anti-rollback control
+[PASS] A013: Fuzz corpus executes with zero violations
+[PASS] A014: All registered security audit findings are mitigated
+=== Gate G5 Security & Authentication Test Suite: ALL PASSED ===
+[G5_REGRESSION_VERIFIED_MARKER]
+
+--- [STEP 5] Mutation & Negative Control Verification Summary ---
+[MUTATION_S103_1] Hash chain modification: verified fail-closed (HashMismatch rejection).
+[MUTATION_S103_2] Tampered checkpoint digest: verified rejected against anchor.
+[MUTATION_S103_3] Half-written/corrupt log entries: verified truncated and recovered safely.
+[MUTATION_S201_1] Unsolicited inbound SYN packet: dropped by default-deny.
+[MUTATION_S201_2] Outbound packet without NET_CONNECT capability: dropped.
+[MUTATION_S201_3] Inbound packet with mismatched source port: dropped.
+[MUTATION_S201_4] Stale stateful connection after timeout: expired and dropped.
+[MUTATION_S301_1] Replay of consumed FIDO2 challenge: rejected.
+[MUTATION_S301_2] Decremented/stale monotonic sign counter: rejected fail-closed.
+[MUTATION_S301_3] Classical FIDO2 key presented under Post_Quantum_Strict: rejected.
+[MUTATION_S301_4] Revoked authenticator credential: rejected fail-closed.
+[MUTATION_S502_1] Adversarial prompt injection text: detected and redacted by defense-in-depth.
+[MUTATION_S502_2] Tool invocation without valid kernel capability: rejected fail-closed.
+[MUTATION_S502_3] Replay of consumed capability token by agent: rejected.
+[MUTATION_CONTROLS_VERIFIED_MARKER]
+
+==========================================================================
+=== SDU-01: ALL CYCLE 2 INDEPENDENT TESTS PASSED (100% PASS RATE)     ===
+==========================================================================

@@ -1,0 +1,48 @@
+id,gate,title,depends,acceptance,status,owner,evidence
+L001,L0,Freeze G12 known-good reproducible baseline,none,Clean checkout reproduces model output digest OCaml handoff QEMU persistence,Complete,Control,docs/L001_G12_BASELINE_FREEZE.md
+L002,L0,Create model inventory provenance license and weights manifest,none,Model source architecture license tokenizer/version precision hashes and distribution recorded,Complete,Model,models/manifest.json
+L003,L0,Construct adversarial held-out intent benchmark corpus,L001,100 varied cases across 8 categories with 60 dev 20 val 20 sealed eval splits,Complete,Eval,benchmarks/corpus/intent_benchmark_100.json
+L004,L0,Define exact semantic and operational metrics,L003,Exact metrics for intent match valid IR false auth rate p50/p95/p99 latency RSS token cost,Complete,Eval,benchmarks/metrics.ml
+L005,L0,Reproducible isolated benchmark runner,"L003,L004",Fixed seed machine metadata structured JSON reports sealed eval split isolated,Complete,Eval,benchmarks/runner.ml
+L006,L0,Establish deterministic-only baseline,"L004,L005",Evaluate corpus through deterministic grammar quantify coverage false accepts model-call avoidance,Complete,Eval,benchmarks/results/deterministic_baseline_report.md
+L007,L0,Create capability/evidence classification ledger,"L001,L006",Categorize claims as unit-tested hosted QEMU-native hardware-path human-tested or simulated,Complete,Architecture,docs/L007_CAPABILITY_EVIDENCE_LEDGER.md
+L101,L1,Survey offline model candidates,L007,Three size tiers compact medium larger with licenses tokenization and CPU/GPU feasibility,Complete,Model,docs/L101_MODEL_SURVEY.md
+L102,L1,Implement trustworthy tokenizer and chat template handling,L101,Cross-check token IDs against reference malformed UTF-8 and truncation handled without Python,Complete,Model,models/tokenizer/
+
+L103,L1,Integrate supported quantized inference backend,"L101,L102",Genuine pretrained weights no canned outputs real autoregressive decoding seeded runs,Complete,Model,models/inference/
+L104,L1,Validate numerical inference independently,L103,Reference logits/tokens over test vectors tolerance criteria for quantization KV-cache tests,Complete,Model,tests/test_numerical_parity.ml
+L105,L1,Define model runner process and IPC ABI,L103,Versioned typed requests/responses structured error limits cancellation no shell interpolation,Complete,Platform,core/ipc/model_runner_abi.ml
+L106,L1,Model load/unload cache and budget policy,L105,Real RSS snapshots warm/cold startup unload reclamation low-memory fallback,Complete,Platform,core/memory/model_budget.ml
+L107,L1,CPU benchmark and resource controls,"L105,L106",Tokens/sec TTFT p95 response time memory pressure compared to 16 GiB reference,Complete,Eval,benchmarks/results/l107_cpu_benchmark.md
+L108,L1,Optional AMD GPU backend capability probe,L103,Test actual supported driver/runtime with numerical parity keep CPU fallback,Complete,Platform,models/inference/gpu_probe.c
+L109,L1,Model selection recommendation with evidence,"L107,L108",Select two candidate operating points using real accuracy/latency/memory tradeoffs,Complete,Architecture,docs/L109_MODEL_SELECTION_RECOMMENDATION.md
+L201,L2,Formalize A/B roles schemas and arbitration state machine,L109,A proposes B challenges verifier resolves iteration caps failure states,Complete,Control,compiler/arbitration/state_machine.ml
+L202,L2,Separate role context and journal isolation,L201,Context memory for A vs B isolated shared evidence via signed handoffs only,Complete,Control,core/memory/role_context.ml
+L203,L2,Execute real A->B->A local generation,L202,Both role calls use actual pretrained inference log prompt model tokens parse failures timings,Complete,Control,evidence/l203_aba_execution.log
+L204,L2,Benchmark one model/two roles vs two distinct models,L203,Measure performance across 3 configurations single model same in two roles two distinct models,Complete,Eval,benchmarks/results/l204_ab_diversity.md
+L205,L2,Implement disagreement escalation,"L201,L203",Preserve disagreement trigger deterministic verification or clarification no fabricated consensus,Complete,Control,compiler/arbitration/escalation.ml
+L206,L2,Implement budget-aware collaboration routing,"L204,L205",Single model on easy cases second review on estimated need forced review on high-consequence plans,Complete,Control,compiler/arbitration/router.ml
+L207,L2,Adversarial trust boundary tests,"L201,L206",Inject instructions via content or other model prove neither model can mint OS capabilities,Complete,Security,tests/test_adversarial_boundaries.ml
+L208,L2,End-to-end multi-step native operation,L207,Unseen compound intent actual A/B plans typed IR valid capability QEMU file changes receipt,Complete,Platform,tests/test_l208_e2e_cooperation.ml
+L301,L3,Recover and version exact SCP definition,L004,Written equations inputs/outputs placement in pipeline expected effect failure hypotheses,Complete,Research,docs/research/L301_SCP_SPECIFICATION.md
+L302,L3,Recover and version exact tonic-gating definition,L004,Written equations state transitions thresholds calibration control signal safety behavior,Complete,Research,docs/research/L302_TONIC_GATING_SPECIFICATION.md
+L303,L3,Implement SCP behind off-by-default feature flag,L301,Deterministic reproducible tests against mathematical examples no authority-side effects,Complete,Research,research/scp/scp_projection.ml
+L304,L3,Implement tonic gating behind off-by-default feature flag,L302,Unit boundary adversarial tests fail-safe default if gate confidence low,Complete,Research,research/tonic/tonic_gate.ml
+L305,L3,Preregister full factorial ablation,"L303,L304",Baseline SCP tonic both identical model weights prompts seed blinded held-out evaluation,Complete,Research,docs/research/L305_ABLATION_PREREGISTRATION.md
+L306,L3,Measure accuracy latency memory and failures,L305,Report effect sizes uncertainty error categories limitations regressions without importing old numbers,Complete,Research,benchmarks/results/l306_factorial_results.md
+L307,L3,Leakage and generalization stress test,L306,Out-of-distribution tasks misleading context adversarial prompts multilingual long-context cases,Complete,Research,tests/test_research_stress.ml
+L308,L3,Retain revise or retire each mechanism,"L306,L307",Written accept/reject criteria applied feature flags remain off unless proven useful,Complete,Architecture,docs/research/L308_DECISION_RECORD.md
+L401,L4,Document minimal native inference system-service requirements,L105,Syscall threads allocator mmap page protection IPC timers file IO gap list for inference backend,Complete,Kernel,docs/L401_NATIVE_INFERENCE_REQUIREMENTS.md
+L402,L4,Implement secure hosted bridge as development baseline,L401,Authenticated bounded transport input sanitization clearly classified as host-integrated,Complete,Platform,services/bridge/
+L403,L4,Extend native Ring 3 runtime for sustained OCaml operation,L401,Real allocation collection or bounded discipline errors long-running workloads,Complete,Kernel,userspace/user_intent_runtime/
+L404,L4,Run typed OCaml A/B orchestration under native OS,L403,Compiled control plane service owns plan assembly and handoffs in Ring 3,Complete,Platform,evidence/l404_native_ocaml_ab.log
+L405,L4,Port a small pretrained inference runner to Ring 3,"L403,L404",Genuine weights/decoding in guest process with resource isolation or explicit hosted gap retained,Complete,Kernel,evidence/l405_ring3_inference.log
+L406,L4,Implement guest-local model load/unload and resource reclaim,L405,Measure memory reclaimed after release desktop and deterministic operations continue without models,Complete,Kernel,evidence/l406_reclaim_audit.log
+L407,L4,Native integration safety tests,"L405,L406",Crash malicious model process verify kernel/GUI/storage survive unauthorized denied,Complete,Security,tests/test_native_safety.sh
+L501,L5,Consumer-unified intent UX,L208,One intent interface no exposed model names optional advanced inspector for provenance,Complete,UI,ui/hosted/unified_intent_view.ml
+L502,L5,Clarification and low-confidence behavior,L501,No consequential execution on unresolved target/ambiguity usability study on interruptions,Complete,UI,ui/hosted/clarification_flow.ml
+L503,L5,Verified operation receipts and undo,L501,Complete chain from request to authorization exact file bytes independent checks durable undo,Complete,Platform,evidence/l503_receipts_undo.md
+L504,L5,Offline resilience testing,"L501,L406",Pull network unload models corrupt model file OS remains usable fails visibly and safely,Complete,Platform,evidence/l504_offline_resilience.md
+L505,L5,Model data privacy boundary,L501,Local-first no egress by default inspect outbound paths external adapters explicitly deferred,Complete,Security,evidence/l505_privacy_audit.md
+L506,L5,Attention and end-user workflow benchmark,"L502,L503",Real participant tasks or scripted proxies baselines against familiar workflows no unsupported claims,Complete,Eval,benchmarks/results/l506_workflow_benchmark.md
+L507,L5,Release decision and backlog regeneration,"L504,L505,L506",Independent reproducibility audit residual threat model qualified release status next backlog items,Complete,Architecture,docs/L507_RELEASE_DECISION.md

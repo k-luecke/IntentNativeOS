@@ -1,0 +1,22 @@
+[package]
+name = "calc_app"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Application Foundry"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = true
+
+[[bin]]
+name = "calc_app"
+path = "src/main.rs"
+test = false
+doctest = false
+
+[dependencies]
+inos-app-sdk = { path = "../../sdk" }

@@ -1,0 +1,281 @@
+(test
+ (name test_ipc_envelope)
+ (modules test_ipc_envelope)
+ (libraries inos_ipc unix))
+
+(test
+ (name test_mode)
+ (modules test_mode)
+ (libraries inos_ir unix))
+
+(test
+ (name test_contract)
+ (modules test_contract)
+ (libraries inos_ir unix))
+
+(test
+ (name test_provenance)
+ (modules test_provenance)
+ (libraries inos_ir unix))
+
+(test
+ (name test_authority)
+ (modules test_authority)
+ (libraries inos_ir unix))
+
+(test
+ (name test_parameter)
+ (modules test_parameter)
+ (libraries inos_ir unix))
+
+(test
+ (name test_resolver)
+ (modules test_resolver)
+ (libraries inos_ir unix))
+
+(test
+ (name test_classifier)
+ (modules test_classifier)
+ (libraries inos_ir unix))
+
+(test
+ (name test_clarification)
+ (modules test_clarification)
+ (libraries inos_ir unix))
+
+(test
+ (name test_state_machine)
+ (modules test_state_machine)
+ (libraries inos_ir unix))
+
+(test
+ (name test_serialize)
+ (modules test_serialize)
+ (libraries inos_ir unix))
+
+(test
+ (name test_journal)
+ (modules test_journal)
+ (libraries inos_memory unix))
+
+(test
+ (name test_state_view)
+ (modules test_state_view)
+ (libraries inos_memory unix))
+
+(test
+ (name test_trust_store)
+ (modules test_trust_store)
+ (libraries inos_memory inos_ir unix))
+
+(test
+ (name test_context)
+ (modules test_context)
+ (libraries inos_memory unix))
+
+(test
+ (name test_budget)
+ (modules test_budget)
+ (libraries inos_memory unix))
+
+(test
+ (name test_model_protocol)
+ (modules test_model_protocol)
+ (libraries inos_models unix))
+
+(test
+ (name test_runtime_a)
+ (modules test_runtime_a)
+ (libraries inos_models unix))
+
+(test
+ (name test_runtime_b)
+ (modules test_runtime_b)
+ (libraries inos_models unix))
+
+(test
+ (name test_handoff_envelope)
+ (modules test_handoff_envelope)
+ (libraries inos_models unix))
+
+(test
+ (name test_handoff)
+ (modules test_handoff)
+ (libraries inos_models inos_memory unix))
+
+(test
+ (name test_escalation)
+ (modules test_escalation)
+ (libraries inos_models unix))
+
+(test
+ (name test_code_sandbox)
+ (modules test_code_sandbox)
+ (libraries inos_models inos_ir unix))
+
+(test
+ (name test_operation_ir)
+ (modules test_operation_ir)
+ (libraries inos_operation unix))
+
+(test
+ (name test_operation_registry)
+ (modules test_operation_registry)
+ (libraries inos_operation unix))
+
+(test
+ (name test_dag_validator)
+ (modules test_dag_validator)
+ (libraries inos_operation unix))
+
+(test
+ (name test_capability_binding)
+ (modules test_capability_binding)
+ (libraries inos_operation unix))
+
+(test
+ (name test_staged_execution)
+ (modules test_staged_execution)
+ (libraries inos_operation unix))
+
+(test
+ (name test_differential_verifier)
+ (modules test_differential_verifier)
+ (libraries inos_operation unix))
+
+(test
+ (name test_native_backend)
+ (modules test_native_backend)
+ (libraries inos_operation unix))
+
+(test
+ (name test_benchmark_harness)
+ (modules test_benchmark_harness)
+ (libraries inos_operation unix))
+
+(test
+ (name test_hosted_ui)
+ (modules test_hosted_ui)
+ (libraries inos_ui inos_operation unix))
+
+(test
+ (name test_gate_g1)
+ (modules test_gate_g1)
+ (libraries inos_ir inos_memory inos_models inos_operation inos_ui unix))
+
+(test
+ (name test_capsules)
+ (modules test_capsules)
+ (libraries inos_capsules unix))
+
+(test
+ (name test_security)
+ (modules test_security)
+ (libraries inos_security unix))
+
+(test
+ (name test_evaluation)
+ (modules test_evaluation)
+ (libraries inos_evaluation inos_security unix))
+
+(test
+ (name test_neural_engine)
+ (modules test_neural_engine)
+ (libraries inos_models unix))
+
+(test
+ (name test_pretrained_inference)
+ (modules test_pretrained_inference)
+ (libraries inos_models unix))
+
+(test
+ (name test_live_intelligence_pipeline)
+ (modules test_live_intelligence_pipeline)
+ (libraries inos_models inos_operation inos_ir unix))
+
+(test
+ (name test_local_intelligence_baseline)
+ (modules test_local_intelligence_baseline)
+ (libraries inos_benchmarks unix))
+
+(test
+ (name test_tokenizer_suite)
+ (modules test_tokenizer_suite)
+ (libraries inos_tokenizer str unix))
+
+(test
+ (name test_numerical_parity)
+ (modules test_numerical_parity)
+ (libraries str unix))
+
+(test
+ (name test_live_aba_cooperation)
+ (modules test_live_aba_cooperation)
+ (libraries inos_arbitration inos_memory str unix))
+
+(test
+ (name test_adversarial_boundaries)
+ (modules test_adversarial_boundaries)
+ (libraries inos_arbitration inos_memory str unix))
+
+(test
+ (name test_l208_e2e_cooperation)
+ (modules test_l208_e2e_cooperation)
+ (libraries inos_arbitration inos_memory inos_operation inos_ir str unix))
+
+(test
+ (name test_research_stress)
+ (modules test_research_stress)
+ (libraries inos_scp inos_tonic inos_nnc inos_models inos_ui inos_arbitration str unix))
+
+
+(test
+ (name test_model_reclaim)
+ (modules test_model_reclaim)
+ (libraries inos_memory unix str))
+
+(test
+ (name test_sustained_reliability)
+ (modules test_sustained_reliability)
+ (libraries inos_operation inos_ir unix))
+
+(test
+ (name test_sentinel_cycle1)
+ (modules test_sentinel_cycle1)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_cycle2)
+ (modules test_sentinel_cycle2)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_cycle3)
+ (modules test_sentinel_cycle3)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_integration)
+ (modules test_sentinel_integration)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_cycle4)
+ (modules test_sentinel_cycle4)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_cycle4_integration)
+ (modules test_sentinel_cycle4_integration)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_gate6)
+ (modules test_sentinel_gate6)
+ (libraries inos_security inos_ir inos_ipc unix str))
+
+(test
+ (name test_sentinel_bqs)
+ (modules test_sentinel_bqs)
+ (libraries inos_security inos_ir inos_ipc unix str))
+

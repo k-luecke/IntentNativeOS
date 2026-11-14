@@ -1,0 +1,59 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = .
+certs             = $dir
+new_certs_dir     = $dir/newcerts
+database          = $dir/index.txt
+serial            = $dir/serial
+certificate       = $dir/ca.crt
+private_key       = $dir/ca.key
+default_md        = sha256
+policy            = policy_loose
+email_in_dn       = no
+copy_extensions   = copy
+
+[ policy_loose ]
+countryName             = optional
+stateOrProvinceName     = optional
+localityName            = optional
+organizationName        = optional
+organizationalUnitName  = optional
+commonName              = supplied
+emailAddress            = optional
+
+[ req ]
+distinguished_name = req_distinguished_name
+x509_extensions     = v3_ca
+prompt              = no
+
+[ req_distinguished_name ]
+C  = US
+ST = State
+L  = City
+O  = INOS Test Authority
+CN = INOS Root CA
+
+[ v3_ca ]
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+[ v3_server ]
+basicConstraints = critical, CA:false
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_server
+
+[ alt_server ]
+DNS.1 = host.test
+IP.1 = 10.0.2.2
+
+[ v3_mismatch ]
+basicConstraints = critical, CA:false
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_mismatch
+
+[ alt_mismatch ]
+DNS.1 = mismatch.test

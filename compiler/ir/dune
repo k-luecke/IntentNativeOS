@@ -1,0 +1,4 @@
+(library
+ (name inos_ir)
+ (modules mode contract provenance authority parameter resolver classifier clarification state_machine serialize)
+ (libraries inos_ipc unix))

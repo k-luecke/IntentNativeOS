@@ -1,0 +1,82 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_date": "2026-10-09",
+  "project": "Intent-Native OS Local Intelligence",
+  "models": [
+    {
+      "model_id": "stories15m-llama2-fp32",
+      "name": "TinyStories-15M LLaMA-2",
+      "role": "baseline-generator",
+      "architecture": {
+        "family": "llama2",
+        "parameters": 15000000,
+        "layers": 6,
+        "hidden_dimension": 288,
+        "intermediate_dimension": 768,
+        "attention_heads": 6,
+        "kv_heads": 6,
+        "vocab_size": 32000,
+        "max_seq_len": 256,
+        "weight_precision": "FP32",
+        "endianness": "little-endian"
+      },
+      "weights_file": {
+        "relative_path": "models/pretrained/stories15M.bin",
+        "size_bytes": 60808684,
+        "sha256": "cd590644d963867a2b6e5a1107f51fad663c41d79c149fbecbbb1f95fa81f49a"
+      },
+      "tokenizer": {
+        "format": "sentencepiece_binary",
+        "vocab_size": 32000,
+        "relative_path": "models/pretrained/tokenizer.bin",
+        "size_bytes": 304197,
+        "sha256": "50a52ef822ee9e83de5ce9d0be0a025a773d019437f58b5ff9dcafb063ece361"
+      },
+      "provenance": {
+        "source_repository": "https://github.com/karpathy/llama2.c",
+        "training_data": "TinyStories synthetic corpus",
+        "original_author": "Andrej Karpathy / Ronen Eldan & Yuanzhi Li (TinyStories)",
+        "license": "MIT",
+        "commercial_use_allowed": true,
+        "distribution_terms": "Permissive open-source distribution with copyright notice"
+      },
+      "operational_profile": {
+        "runtime_engine": "models/pretrained/run.c",
+        "engine_sha256": "9c4f2d5c6ae01b71726d1cc37530d71e60bff0ec7cc012565f16a43c1ca658bd",
+        "typical_latency_per_token_ms": 10.5,
+        "peak_rss_mb": 68.0,
+        "quantized": false,
+        "verified_offline": true
+      }
+    }
+  ],
+  "candidate_inventory": [
+    {
+      "candidate_id": "qwen2.5-0.5b-instruct-gguf",
+      "target_gate": "Gate L1",
+      "architecture": "qwen2",
+      "parameter_tier": "compact",
+      "target_quantization": "Q4_K_M",
+      "expected_ram_mb": 450,
+      "license": "Apache-2.0"
+    },
+    {
+      "candidate_id": "llama-3.2-1b-instruct-gguf",
+      "target_gate": "Gate L1",
+      "architecture": "llama3",
+      "parameter_tier": "medium",
+      "target_quantization": "Q4_K_M",
+      "expected_ram_mb": 850,
+      "license": "Llama 3.2 Community License"
+    },
+    {
+      "candidate_id": "qwen2.5-3b-instruct-gguf",
+      "target_gate": "Gate L1",
+      "architecture": "qwen2",
+      "parameter_tier": "larger",
+      "target_quantization": "Q4_K_M",
+      "expected_ram_mb": 2200,
+      "license": "Apache-2.0"
+    }
+  ]
+}

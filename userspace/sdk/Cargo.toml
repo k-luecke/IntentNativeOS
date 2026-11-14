@@ -1,0 +1,8 @@
+[package]
+name = "inos-app-sdk"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Architecture Team"]
+description = "Freestanding Application SDK and Ring 3 ABI for Intent-Native OS"
+
+[dependencies]

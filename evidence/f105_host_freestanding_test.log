@@ -1,0 +1,17 @@
+
+[RING3_TRANSFORMER] === Commencing Untrusted User-Space Neural Inference (Ring 3, CPL=3) ===
+[RING3_TRANSFORMER] Hardware isolation: Process running in Ring 3 with hardware W^X enforced.
+[RING3_TRANSFORMER] Ingested Llama-2 Model: dim=288, layers=6, heads=6, vocab=32000
+[RING3_TRANSFORMER] Executing autoregressive greedy decoding (prompt token ID = 1 <s>)...
+[RING3_TRANSFORMER] Step 0: token_in=1 -> predicted_id=9038, logit=12.2900, decoded='Once'
+[RING3_TRANSFORMER] Step 1: token_in=9038 -> predicted_id=2501, logit=25.3725, decoded=' upon'
+[RING3_TRANSFORMER] Step 2: token_in=2501 -> predicted_id=263, logit=20.2384, decoded=' a'
+[RING3_TRANSFORMER] Step 3: token_in=263 -> predicted_id=931, logit=20.8713, decoded=' time'
+[RING3_TRANSFORMER] Step 4: token_in=931 -> predicted_id=29892, logit=18.3597, decoded=','
+[RING3_TRANSFORMER] Step 5: token_in=29892 -> predicted_id=727, logit=16.6333, decoded=' there'
+[RING3_TRANSFORMER] Complete generated text: "Once upon a time, there"
+[RING3_TRANSFORMER] Cycles: 1634443703 | Matched reference tokens: 6/6
+[RING3_PRETRAINED_NUMERICAL_PARITY_VERIFIED_MARKER]
+[F105_RING3_TRANSFORMER_FORWARD_PASS_SUCCESS]
+[TEST] Running freestanding transformer on models/pretrained/stories15M.bin (60816028 bytes)...
+[TEST] Finished with result code: 0

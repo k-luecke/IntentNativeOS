@@ -1,0 +1,4 @@
+(library
+ (name inos_tokenizer)
+ (modules utf8_cleaner chat_template bpe_tokenizer)
+ (libraries unix str))

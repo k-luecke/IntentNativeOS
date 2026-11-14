@@ -1,0 +1,21 @@
+[package]
+name = "user_init"
+version = "0.1.0"
+edition = "2021"
+authors = ["INOS Userspace Team"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = true
+
+[[bin]]
+name = "user_init"
+path = "src/main.rs"
+test = false
+doctest = false
+
+[dependencies]

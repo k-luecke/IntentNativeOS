@@ -1,0 +1,27 @@
+{
+  "benchmark_report_version": "1.0",
+  "timestamp": "2026-10-09T18:54:23Z",
+  "source_sha256": "c72cd3772ce94ed5290e9dfa7aa82672",
+  "binary_sha256": "63cb4792d6930ed90e356a0ef6f3cee9",
+  "inputs": {
+    "summary": "4 distinct vectors; total vector runs = 40",
+    "total_distinct_vectors": 4
+  },
+  "distributions": {
+    "iterations": 40,
+    "min_micros": 2637.148,
+    "median_micros": 3512.859,
+    "p95_micros": 4642.010,
+    "p99_micros": 4707.098,
+    "max_micros": 4877.090,
+    "mean_micros": 3621.519,
+    "stddev_micros": 551.435,
+    "buckets": [
+      {"range": "[2637.1 - 3085.1 µs]", "count": 5},
+      {"range": "[3085.1 - 3533.1 µs]", "count": 16},
+      {"range": "[3533.1 - 3981.1 µs]", "count": 7},
+      {"range": "[3981.1 - 4429.1 µs]", "count": 7},
+      {"range": "[4429.1 - 4877.1 µs]", "count": 5}
+    ]
+  }
+}

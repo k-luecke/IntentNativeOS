@@ -1,0 +1,4 @@
+(library
+ (name inos_operation)
+ (modules operation_ir registry dag_validator capability_binding staged_execution differential_verifier native_backend benchmark_harness live_intent_compiler)
+ (libraries inos_ipc inos_ir inos_memory unix))

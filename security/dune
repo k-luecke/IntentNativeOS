@@ -1,0 +1,3 @@
+(library
+ (name inos_security)
+ (libraries inos_ipc inos_ir unix))

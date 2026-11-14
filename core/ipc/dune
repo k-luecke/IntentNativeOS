@@ -1,0 +1,4 @@
+(library
+ (name inos_ipc)
+ (modules sha256 envelope model_runner_abi)
+ (libraries unix))

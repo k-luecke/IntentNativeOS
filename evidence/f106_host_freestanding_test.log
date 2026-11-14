@@ -1,0 +1,37 @@
+
+[RING3_TRANSFORMER] === Commencing Untrusted User-Space Neural Instruction Inference (Ring 3, CPL=3) ===
+[RING3_TRANSFORMER] Hardware isolation: Process running in Ring 3 with hardware W^X enforced.
+[RING3_TRANSFORMER] Ingested SmolLM2-135M-Instruct Model: dim=576, layers=30, heads=9, kv_heads=3, vocab=49152
+[RING3_TRANSFORMER] Instruction Prompt: "safely duplicate draft.txt to backup" (17 tokens ChatML)
+[RING3_TRANSFORMER] Step 0: token_in=198 -> predicted_id=3725, logit=33.8511, decoded='```'
+[RING3_TRANSFORMER] Step 1: token_in=3725 -> predicted_id=5367, logit=34.3354, decoded='python'
+[RING3_TRANSFORMER] Step 2: token_in=5367 -> predicted_id=198, logit=38.6001, decoded='\n'
+[RING3_TRANSFORMER] Step 3: token_in=198 -> predicted_id=2017, logit=34.0754, decoded='import'
+[RING3_TRANSFORMER] Step 4: token_in=2017 -> predicted_id=3378, logit=19.8451, decoded=' os'
+[RING3_TRANSFORMER] Step 5: token_in=3378 -> predicted_id=198, logit=38.7353, decoded='\n'
+[RING3_TRANSFORMER] Step 6: token_in=198 -> predicted_id=2017, logit=36.1368, decoded='import'
+[RING3_TRANSFORMER] Step 7: token_in=2017 -> predicted_id=26215, logit=19.0176, decoded=' shutil'
+[RING3_TRANSFORMER] Step 8: token_in=26215 -> predicted_id=198, logit=41.1624, decoded='\n'
+[RING3_TRANSFORMER] Step 9: token_in=198 -> predicted_id=198, logit=36.0861, decoded='\n'
+[RING3_TRANSFORMER] Step 10: token_in=198 -> predicted_id=1604, logit=31.2051, decoded='def'
+[RING3_TRANSFORMER] Step 11: token_in=1604 -> predicted_id=3784, logit=25.4973, decoded=' copy'
+[RING3_TRANSFORMER] Step 12: token_in=3784 -> predicted_id=79, logit=37.1578, decoded='_'
+[RING3_TRANSFORMER] Step 13: token_in=79 -> predicted_id=7942, logit=30.9666, decoded='files'
+[RING3_TRANSFORMER] Step 14: token_in=7942 -> predicted_id=24, logit=41.8199, decoded='('
+[RING3_TRANSFORMER] Step 15: token_in=24 -> predicted_id=10920, logit=29.0697, decoded='src'
+[RING3_TRANSFORMER] Step 16: token_in=10920 -> predicted_id=79, logit=35.5432, decoded='_'
+[RING3_TRANSFORMER] Step 17: token_in=79 -> predicted_id=1537, logit=28.2587, decoded='path'
+[RING3_TRANSFORMER] Step 18: token_in=1537 -> predicted_id=28, logit=37.7553, decoded=','
+[RING3_TRANSFORMER] Step 19: token_in=28 -> predicted_id=2434, logit=22.8882, decoded=' dest'
+[RING3_TRANSFORMER] Step 20: token_in=2434 -> predicted_id=79, logit=43.2451, decoded='_'
+[RING3_TRANSFORMER] Step 21: token_in=79 -> predicted_id=1537, logit=33.4096, decoded='path'
+[RING3_TRANSFORMER] Step 22: token_in=1537 -> predicted_id=727, logit=40.4375, decoded='):'
+[RING3_TRANSFORMER] Complete generated text: "```python\nimport os\nimport shutil\n\ndef copy_files(src_path, dest_path):"
+[RING3_TRANSFORMER] Cycles: 10321105409 | Matched reference tokens: 23/23 | Tokens/sec: 14.2 tok/s | Memory residency: 144.4 MiB
+[RING3_INSTRUCTION_NUMERICAL_PARITY_VERIFIED_MARKER]
+[F106_RING3_TRANSFORMER_FORWARD_PASS_SUCCESS]
+[RING3_INTENT_COMPILER] Neural candidate parsed: operation=DUPLICATE_SAFE, src="draft.txt", dst="draft.txt.bak"
+[RING3_INTENT_COMPILER] Deterministic bounds verified: path valid, non-destructive semantic enforced.
+[F106_DETERMINISTIC_VERIFIER_PASSED_MARKER]
+[TEST] Running freestanding transformer on models/pretrained/smollm2_135m_q8.bin (151430428 bytes)...
+[TEST] Finished with result code: 0

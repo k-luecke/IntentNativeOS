@@ -1,0 +1,3 @@
+5d329327d324b8f1f0d409adad807ae173b415343be92e69c31ac4487d7f0006  userspace/user_intent_runtime/user_intent_runtime
+08f29891a6c1b4bde40b55e526c6edab6bac8b81e2f1b136b56f2d8897560047  build/esp/EFI/BOOT/BOOTX64.EFI
+90cfff5fc0fcfba507d4010994a252a76c3c2dd59aadae8870d0d00b61421415  build/persistent_disk.img

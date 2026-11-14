@@ -1,0 +1,4 @@
+(library
+ (name inos_memory)
+ (modules journal state_view trust_store context budget model_budget role_context memory_hierarchy)
+ (libraries inos_ir inos_ipc unix))

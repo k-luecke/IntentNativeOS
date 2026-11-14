@@ -1,0 +1,20 @@
+
+[RING3_TRANSFORMER] === Commencing Untrusted User-Space Neural Instruction Inference (Ring 3, CPL=3) ===
+[RING3_TRANSFORMER] Hardware isolation: Process running in Ring 3 with hardware W^X enforced.
+[RING3_TRANSFORMER] Ingested SmolLM2-135M-Instruct Model: dim=576, layers=30, heads=9, kv_heads=3, vocab=49152
+[RING3_TRANSFORMER] Instruction Prompt: "safely duplicate draft.txt to backup" (23 tokens ChatML with schema prefill)
+[RING3_TRANSFORMER] Grammar Step 0 (OP): evaluated logits over operations -> selected token 9654 ('copy')
+[RING3_TRANSFORMER] Grammar Step 1 (SRC): generating target filename tokens -> [47921, 30, 9047] ('draft.txt')
+[RING3_TRANSFORMER] Grammar Step 2 (TERMINAL): token 23597 ('"}')
+[RING3_TRANSFORMER] Grammar-constrained generation: "{\"op\": \"copy\", \"src\": \"draft.txt\"}"
+[RING3_TRANSFORMER] Cycles: 9117181300 | Generated proposal tokens: 5/5 | Tokens/sec: 14.5 tok/s | Memory residency: 144.4 MiB
+[RING3_TRANSFORMER] Proposal decoded: op=copy, src="draft.txt" (PROVENANCE_MODEL_GENERATED), dst="draft.txt.bak" (PROVENANCE_EXPLICIT_CONVENTION)
+[RING3_TRANSFORMER] [HOST_TEST] SYS_SUBMIT_INTENT_PROPOSAL simulated ok.
+[F106_1_RING3_PROPOSAL_SUBMITTED_MARKER]
+[RING3_INSTRUCTION_NUMERICAL_PARITY_VERIFIED_MARKER]
+[F106_RING3_TRANSFORMER_FORWARD_PASS_SUCCESS]
+[RING3_INTENT_COMPILER] Neural candidate parsed: operation=DUPLICATE_SAFE, src="draft.txt", dst="draft.txt.bak"
+[RING3_INTENT_COMPILER] Deterministic bounds verified: path valid, non-destructive semantic enforced.
+[F106_DETERMINISTIC_VERIFIER_PASSED_MARKER]
+[TEST] Running freestanding transformer on models/pretrained/smollm2_135m_q8.bin (151430428 bytes)...
+[TEST] Finished with result code: 0

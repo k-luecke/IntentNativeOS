@@ -1,0 +1,24 @@
+(library
+ (name inos_benchmarks)
+ (modules metrics corpus_parser deterministic_baseline)
+ (libraries inos_ir inos_security inos_tonic inos_scp inos_nnc inos_models unix str))
+
+(executable
+ (name runner)
+ (modules runner)
+ (libraries inos_benchmarks inos_ir inos_security inos_tonic inos_scp inos_nnc inos_models unix str))
+
+(executable
+ (name ab_benchmark)
+ (modules ab_benchmark)
+ (libraries inos_benchmarks inos_arbitration inos_memory unix str))
+(executable
+ (name factorial_ablation)
+ (modules factorial_ablation)
+ (libraries inos_benchmarks inos_arbitration inos_memory inos_scp inos_tonic inos_nnc inos_models unix str))
+
+(executable
+ (name instruction_benchmark)
+ (modules instruction_benchmark)
+ (libraries inos_benchmarks inos_ir inos_operation inos_security unix str))
+

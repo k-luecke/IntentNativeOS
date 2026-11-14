@@ -1,0 +1,421 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+
+==================================================
+=== [INOS KERNEL BOOT] - x86-64 Intent-Native OS ===
+==================================================
+[SERIAL] 16550 UART initialized at port 0x3F8 (115200 8N1).
+[BOOT] UEFI firmware entry reached in 64-bit long mode.
+[PLATFORM] Target: x86-64 QEMU/OVMF virtual reference platform.
+[STATUS] Kernel image verification successful.
+[INOS_BOOT_OK_MARKER_v0.1]
+[GOP] UEFI Graphics Output Protocol located: 1280x800 (pitch: 1280), FB base: 0x0x0000000080000000
+[UEFI_GOP_HARDWARE_FRAMEBUFFER_DISCOVERED_MARKER_v0.1]
+[MEM] UEFI GetMemoryMap succeeded. Size: 5904 bytes, DescSize: 48
+[MEM] Normalized regions count: 29
+[MEM] Total usable RAM: 1014 MB, Reserved: 12301 MB
+[MEM_MAP_CAPTURED_MARKER_v0.1]
+[PAGE_TABLES] PML4_RENDER initialized (CPL=3 isolated PML4 at 0x0x000000003e038000)
+[PAGE_TABLES] Physical memory disjointness verification: PASSED. Zero frame aliases detected.
+[PAGE_TABLES] W^X permission verification: PASSED. Zero pages are both writable and executable.
+[PAGE_TABLES] Stack guard page verification: PASSED. Flanking guard pages non-present.
+[PAGING] 4-level x86-64 page tables initialized.
+[PAGING] Identity translation verified: virt 0x0000000000200000 -> phys 0x0000000000200000
+[PAGING_INITIALIZED_MARKER_v0.1]
+[IDT] Initializing Interrupt Descriptor Table...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0x0000deadbeef0000
+[PF_DIAG] Error Code: 0x0000000000000002 (Present=0, Write=1, User=0)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[TIMER] 8259 PIC remapped: master 0x20-0x27, slave 0x28-0x2F.
+[TIMER] PIT channel 0 initialized at 100 Hz.
+[TIMER] Monotonic ticks: t1=0, t2=15, t3=40 (strictly monotonic: true)
+[MONOTONIC_TIMER_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] Initialized physical frame allocator from UEFI memory map.
+[FRAME_ALLOC] Total free frames: 249949 (976 MB usable RAM)
+[FRAME_ALLOC] Base frame allocation test: allocated frame at 0x0x0000000000001000
+[FRAME_ALLOC] Base frame free test: frame freed successfully.
+[FRAME_ALLOCATOR_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] High-memory allocation above 256 MiB boundary succeeded: 0x0x0000000020000000 (512 MiB physical)
+[HIGH_MEMORY_ABOVE_256MB_VERIFIED_MARKER]
+[FRAME_ALLOC] Multi-page contiguous allocation succeeded (256 frames / 1 MiB at 0x0x0000000000100000)
+[FRAME_ALLOC] Multi-page contiguous frames cleanly reclaimed.
+[CONTIGUOUS_MODEL_WEIGHT_ALLOC_VERIFIED_MARKER]
+[VMM] Testing virtual memory mapping / unmapping API...
+[VMM] Initial unmapped page verification: None (as designed).
+[VMM] Mapped user virt 0x0000600000000000 -> phys 0x0000000000001000 with WRITABLE|USER_ACCESSIBLE.
+[VMM] Translation verified successfully: virt maps to allocated frame.
+[VMM] Unmapped user page. Freed phys: 0x0000000000001000
+[VMM] Unmapped user page access faults as designed (translation is None, TLB flushed).
+[VM_MAPPING_VERIFIED_MARKER_v0.1]
+[VMM_RANGE] Testing multi-page map_range, protect_range (W^X), and unmap_range...
+[VMM_RANGE] Allocated 16 contiguous frames at phys 0x0x0000000000005000
+[VMM_RANGE] Mapped 16 pages at virt 0x0x0000700000000000 (WRITABLE|USER_ACCESSIBLE)
+[VMM_RANGE] Enforced hardware W^X on model weights: WRITABLE cleared, NO_EXECUTE set (bit 63).
+[HARDWARE_WX_PROTECT_RANGE_VERIFIED_MARKER]
+[VMM_RANGE] Cleanly unmapped all 16 pages and reclaimed physical frames.
+[VMM_RANGE] Verified translation is None after unmap_range.
+[NATIVE_RESIDENCY_VMM_VERIFIED_MARKER]
+[PRETRAINED_MODEL] Probing for hardware model drive via PCI (VirtIO-blk)...
+[VIRTIO_BLK] No valid VirtIO-blk model device detected on PCI. Error: PciNotMatched
+[WEB_01A] Initializing native network stack & probing VirtIO-Net...
+[NET_INIT] VirtIO-Net PCI device initialized successfully. MAC=0x0000000000000052:0x0000000000000054:0x0000000000000000:0x0000000000000012:0x0000000000000034:0x0000000000000056
+[WEB_01B] Initializing CMOS RTC clock & hardware entropy CSPRNG...
+[CRYPTO] RFC 8439 ChaCha20 Known Answer Test passed: Primitive verified.
+[DRBG_RFC8439_KAT_VERIFIED_MARKER]
+[CRYPTO] DRBG Construction state transition & key erasure verified against reference vectors.
+[DRBG_CONSTRUCTION_KAT_VERIFIED_MARKER]
+[ENTROPY] Hardware entropy probe: RDRAND=YES, RDSEED=YES
+[ENTROPY] Hardware entropy source initialized: HW_READY (hardware entropy source initialized)
+[ENTROPY_HARDWARE_READY_MARKER_v1.0]
+[PRETRAINED_MODEL] Probing fallback hardware model drive on secondary IDE channel (0x170)...
+[PRETRAINED_MODEL] Secondary ATA drive detected at port 0x170.
+[MODEL_TRANSPORT] Selected transport: Batched ATA PIO (Port 0x170)
+[MODEL_TRANSPORT_ERROR] Failed to read header block 0
+[PRETRAINED_MODEL_ERROR] Secondary ATA ingestion failed!
+[MODEL_FREE_BASELINE_ACTIVE] Model weights omitted; deterministic document editor & storage operational.
+[SMP] Detecting multicore topology via ACPI / firmware...
+[SMP] Total processors detected: 2, Local APIC base: 0x00000000fee00000
+[SMP] Core 0 (BSP): online.
+[SMP] Booting secondary AP Core 1...
+[SMP] Core 1 online: reported all expected cores (2/2).
+[MULTICORE_BOOT_VERIFIED_MARKER_v0.1]
+[SCHED] Initializing per-core scheduler for Core 0...
+[SCHED] Spawned two synthetic workers (id=1, id=2).
+[SCHED] Initial schedule selected worker index 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Verified: two synthetic workers progress and yield cooperatively.
+[SCHEDULER_VERIFIED_MARKER_v0.1]
+[USER_ISOLATION] Validating user-mode address space privilege boundaries...
+[USER_ISOLATION] User-mode access to kernel address 0xFFFF800000000000 rejected.
+[USER_MODE_ISOLATION_VERIFIED_MARKER_v0.1]
+[SYSCALL] Initializing Syscall Gate and ABI Dispatcher...
+[SYSCALL] ABI v1.0 verified; unknown syscall 0x9999 rejected.
+[SYSCALL_GATE_VERIFIED_MARKER_v0.1]
+[IPC] Testing typed IPC messages and bounded queues...
+[IPC] Bounded send/receive and in-flight cancellation verified.
+[IPC_BOUNDED_QUEUE_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Initializing capability table and object tracking...
+[CAPABILITY] Unowned capability access by PID 2 denied.
+[CAPABILITY_BOUND_ACCESS_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Revoked child capability lost access immediately.
+[CAPABILITY_REVOCATION_VERIFIED_MARKER_v0.1]
+[LIFECYCLE] Object reference count reached 0; reclaimed without leaks.
+[OBJECT_LIFECYCLE_REFCOUNT_VERIFIED_MARKER_v0.1]
+[ELF_LOADER] Loading approved user-mode ELF binary...
+[ELF_LOADER] Independently built ELF loaded: size=4832 bytes, entry=0x0x0000000000400000
+[ELF_LOADER_VERIFIED_MARKER_v0.1]
+[RING3] Executing independently compiled ELF in user mode (CPL=3)...
+[RING3] Syscall boundary crossed: SYS_GET_VERSION returned 0x0100.
+[RING3] User-space attempted access to protected kernel space (0xFFFF800000000000)...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0xffff800000000000
+[PF_DIAG] Error Code: 0x0000000000000004 (Present=0, Write=0, User=1)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[PF_DIAG] User-mode fault safely contained by kernel.
+[RING3_KERNEL_ACCESS_BLOCKED_MARKER_v0.1]
+[RING3] User task contained; kernel and sibling services remain running.
+[RING3_USER_ISOLATION_VERIFIED_MARKER_v0.1]
+[OCAML_RUNTIME_LOADER] Loading native compiled OCaml intent runtime ELF...
+[OCAML_RUNTIME_LOADER] OCaml Ring 3 ELF loaded: size=34704 bytes, entry=0x0x000000000040081d
+[OCAML_RING3_BINARY_VALIDATED_MARKER_v0.1]
+[SECURITY] Testing capability enforcement on Ring 3 file write...
+[KERNEL_SYSCALL] SYS_FILE_CREATE: PermissionDenied for '              '
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 1, Syscall: 10, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[SECURITY] Unauthorized Ring 3 syscall safely rejected with PermissionDenied.
+[CAPABILITY_DENIAL_VERIFIED_MARKER_v0.1]
+[OCAML_RING3] Executing native compiled OCaml intent processor in user mode (CPL=3)...
+[RING3_OCAML_AB] Commencing native Ring 3 dual-model intent arbitration...
+[RING3_OCAML_AB] === TEST 1: Ambiguous intent ('clean up old project files') ===
+[RING3_OCAML_AB] Role A identified candidate operations and ambiguity.
+[RING3_OCAML_AB] Role B challenged unsupported deletion assumptions.
+[RING3_OCAML_AB] Model B challenged proposal. Halting execution. Escalated to user clarification receipt.
+[RING3_OCAML_AB] Zero capabilities issued for ambiguous intent.
+[RING3_OCAML_AB] === TEST 2: Valid create intent ('create os_changes.txt') ===
+[RING3_OCAML_AB] Role A synthesized candidate plan.
+[RING3_OCAML_AB] Role B approved proposal. Validating capability against kernel contract...
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized by capability token 2
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 65 bytes to INOS-FS with persistent receipt
+[RING3_OCAML_AB] Deterministic verifier passed. Emitting authorized Ring 3 syscall...
+[OCAML_RING3] OCaml intent transformed into authorized file operation via syscalls.
+[GAP_G7_02_CLOSED_OCAML_RING3_EXECUTION_VERIFIED]
+[L404_NATIVE_OCAML_AB_ORCHESTRATION_VERIFIED]
+
+[RING3_OCAML] === TEST 3: Native Ring 3 Model Weight Residency & Hardware W^X ===
+[RING3_TRANSFORMER] Running in pure Model-Free Habitable Computing baseline.
+[MODEL_FREE_BASELINE_VERIFIED_MARKER]
+[PROCESS] Initializing process manager and lifecycle primitives...
+[PROCESS] Task A exited with code 42, successfully reaped by parent.
+[PROCESS_LIFECYCLE_VERIFIED_MARKER_v0.1]
+[FAULT_RECOVERY] Testing fault containment for user tasks...
+[FAULT_RECOVERY] Faulting task terminated; sibling task remains running.
+[FAULT_CONTAINMENT_VERIFIED_MARKER_v0.1]
+[SUPERVISOR] Simulating critical service crash and supervisor recovery...
+[SUPERVISOR] Critical service restarted automatically with PID 5
+[BOOT_SUPERVISOR_VERIFIED_MARKER_v0.1]
+[AUDIT_LOG] Verifying deterministic kernel event log...
+[AUDIT_LOG] Kernel event stream confirmed sequential and tamper-auditable.
+[EVENT_LOGGING_VERIFIED_MARKER_v0.1]
+[FUZZ] Running seed corpus against syscall and IPC parsers...
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000000000 pages=1 (min_phys >= 0x0xaaaa5555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0xffff800000000000 pages=18446603336221196289 (min_phys >= 0x0x5555d555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[FUZZ] Successfully ran 64 fuzzed mutations with zero kernel panics.
+[FUZZ_CORPUS_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G2T: BOOTABLE ISOLATION GATE VERIFIED] ===
+==================================================
+[GATE_G2T] x86-64 microkernel booted successfully under QEMU/OVMF.
+[GATE_G2T] Two userspace tasks executed in isolated address spaces.
+[GATE_G2T] Kernel space and unowned capabilities protected fail-closed.
+[GATE_G2_ISOLATION_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G3: NATIVE OS SERVICES AND USABLE MVP] ===
+==================================================
+[STORAGE] Initializing block device abstraction (256 blocks, 512 B/sector)...
+[STORAGE] Block read/write roundtrip verified at LBA 4.
+[BLOCK_DEVICE_VERIFIED_MARKER_v0.1]
+[FS] Formatting persistent filesystem driver (INOS-FS)...
+[FS] Create/read/rename/delete lifecycle confirmed across simulated mount.
+[FILESYSTEM_OPERATIONS_VERIFIED_MARKER_v0.1]
+[WAL] Executing atomic write and power-loss crash recovery tests across 5 boundaries...
+[WAL_BOUNDARY_1] Power cut at uncommitted prepare: uncommitted write discarded on recovery.
+[WAL_BOUNDARY_2] Power cut after commit before target write: committed write replayed on recovery.
+[WAL_BOUNDARY_3] Repeated recovery idempotency: identical filesystem state preserved.
+[WAL_BOUNDARY_4] Corrupted journal record: safely rejected fail-closed without corrupting storage.
+[WAL_BOUNDARY_5] Unrelated file preservation: kernel_spec.txt byte integrity 100% intact.
+[WAL] Injected crash preserved committed state; atomic WAL verified.
+[ATOMIC_CRASH_RECOVERY_VERIFIED_MARKER_v0.1]
+[F105_WAL_CRASH_RECOVERY_ALL_BOUNDARIES_VERIFIED_MARKER]
+[FS-CAPACITY-02] Initiating extended multi-block crash injection and durability audit...
+[FS_CAPACITY_02_CRASH_UNCOMMITTED_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_MIDSTREAM_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_PRE_PUBLISH_VERIFIED_MARKER]
+[FS_CAPACITY_02_CRASH_COMMITTED_VERIFIED_MARKER]
+[FS_CAPACITY_02_CORRUPT_POINTER_REJECTED_MARKER]
+[FS_CAPACITY_02_ALL_BOUNDARIES_VERIFIED_MARKER]
+[FS-CAPACITY-03] Executing 6-boundary crash durability & recovery suite...
+[FS_CAPACITY_03_SUITE_STARTED_MARKER]
+[FS_CAPACITY_03_BOUNDARY_1_INDIRECT_ALLOC_MARKER]
+[FS_CAPACITY_03_BOUNDARY_2_MULTIBLOCK_PAYLOAD_MARKER]
+[FS_CAPACITY_03_BOUNDARY_3_INODE_PUBLICATION_MARKER]
+[FS_CAPACITY_03_BOUNDARY_4_WAL_COMMIT_RECORD_MARKER]
+[FS_CAPACITY_03_BOUNDARY_5_JOURNAL_REPLAY_INTERRUPT_MARKER]
+[FS_CAPACITY_03_BOUNDARY_6_INTERRUPTED_APP_SAVE_MARKER]
+[FS_CAPACITY_03_INTEGRITY_AUDIT_PASS_MARKER]
+[FS_CAPACITY_03_ALL_BOUNDARIES_VERIFIED_MARKER]
+[PERSISTENCE] Checking for hardware ATA block device on secondary channel...
+[PERSISTENCE] ATA IDE Primary Slave detected (16 MB raw disk attached).
+[NET] Initializing network stack adapter & loopback socket...
+[NET] QEMU loopback ICMP ping and TCP 3-way handshake verified.
+[NETWORK_LOOPBACK_VERIFIED_MARKER_v0.1]
+[INPUT] Initializing keyboard and pointer input event path...
+[INPUT] Key and pointer events routed into isolated UI event queue.
+[INPUT_EVENT_PATH_VERIFIED_MARKER_v0.1]
+[GRAPHICS] Initializing linear RGB framebuffer output...
+[GRAPHICS] Graphical framebuffer rendering test pattern verified.
+[FRAMEBUFFER_DISPLAY_VERIFIED_MARKER_v0.1]
+[COMPOSITOR] Creating dual window surfaces with rectangular clipping...
+[COMPOSITOR] Dual window surfaces rendered and clipped with correct z-order.
+[COMPOSITOR_SURFACES_VERIFIED_MARKER_v0.1]
+[UI] Rendering bitmap font glyphs and testing keyboard input widgets...
+[UI] Bitmap text rendering and keyboard input widget navigation verified.
+[FONT_RENDER_WIDGETS_VERIFIED_MARKER_v0.1]
+[G9_WORKFLOW] Initializing Human-Operated Native Workflow engine...
+[G9_WORKFLOW] Stage 1: Initializing INOS-FS on primary ATA slave...
+[G9_FS_FORMATTED_OK]
+[G9_AWAITING_DOC_NAME]
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000011 -> 'w'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000012 -> 'e'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000030 -> 'b'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000000b -> '0'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000003 -> '2'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000002e -> 'c'
+[G9_KEYBOARD_HW] Enter key (0x1C) received. Line committed.
+[G9_DOC_NAME_ACCEPTED] Document Name: 'web02c'
+[G9_AWAITING_DOC_CONTENT]
+[G9_KEYBOARD_HW] Input window completed; text buffer: 'Habitable computing without AI dependencies.'
+[G9_DOC_CONTENT_ACCEPTED] Arbitrary Content: 'Habitable computing without AI dependencies.'
+[G9_STAGE1_TYPED_RENDERED]
+[WEB_02C_WORKFLOW] Stage 3: Parser Conformance, Fuzzing & Security Telemetry (WEB-02C)...
+[WEB_02C_STAGE3_STARTED_MARKER_v1.0]
+[PAGE_TABLES] PML4_RENDER initialized (CPL=3 isolated PML4 at 0x0x000000003e038000)
+[PAGE_TABLES] Physical memory disjointness verification: PASSED. Zero frame aliases detected.
+[PAGE_TABLES] W^X permission verification: PASSED. Zero pages are both writable and executable.
+[PAGE_TABLES] Stack guard page verification: PASSED. Flanking guard pages non-present.
+[WEB_02C] Spawning and executing Ring 3 web_render (PID 310)...
+[ELF_LOADER] Loading approved Ring 3 ELF binary (size=131104 bytes, entry=0x0x0000000000400000)...
+[RING3] Switching CPU context to Ring 3 (CPL=3) via iretq: entry=0x0x0000000000400000 user_stack=0x0x00000000005fe000
+[RING3_ENTRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Native Ring 3 Document Renderer started (Milestones WEB-02A & WEB-02B).
+[WEB_RENDER] Hardware CPL=3 isolation confirmed.
+[WEB_RENDER] Registered Process ID 310 confirmed (dedicated sandbox).
+[WEB_RENDER] Negative Test 1: Requesting network socket capability...
+[SECURITY_POLICY] REJECT: No policy rule permits org.inos.web.renderer (PID=310) to access 'net:socket'
+[WEB_RENDER] PASS: Network socket capability request denied fail-closed (PermissionDenied).
+[WEB_02A_AMBIENT_NET_DENIED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 2: Attempting direct socket creation...
+[KERNEL_SYSCALL] SYS_NET_SOCKET: PermissionDenied for token
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 17, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] PASS: Direct socket syscall denied fail-closed.
+[WEB_RENDER] Negative Test 3: Requesting filesystem write capability...
+[SECURITY_POLICY] REJECT: No policy rule permits org.inos.web.renderer (PID=310) to access 'test_output.txt'
+[WEB_RENDER] PASS: Filesystem write capability denied fail-closed (PermissionDenied).
+[WEB_02A_AMBIENT_FS_DENIED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 4: Attempting direct file creation syscall...
+[KERNEL_SYSCALL] SYS_FILE_CREATE: PermissionDenied for 'test_output.txt'
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 10, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] PASS: Direct file create denied fail-closed.
+[WEB_02A_AMBIENT_HW_DENIED_MARKER_v1.0]
+[WEB_02A_AMBIENT_AUTHORITY_DENIED_MARKER_v1.0]
+[WEB_RENDER] Receiving document stream via IPC_CHAN_DOC_FEED...
+[WEB_IPC] Message successfully dispatched to PID 310 (type=1)
+[WEB_RENDER] Received valid inos.web.ipc.v1 document chunk: len= bytes from Broker (PID 301).
+[WEB_02A_IPC_DOC_RECV_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Submitting validated display commands for content surface 2...
+[COMPOSITOR] Validated display command: op=1 rect=(20,20,400,100)
+[COMPOSITOR] Validated DrawText: 'INOS Native Document Engine'
+[COMPOSITOR] Present committed for content surface 2
+[WEB_RENDER] PASS: Display commands validated and accepted by Compositor.
+[WEB_02A_IPC_DISPLAY_SUBMIT_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.1: Forging sender identity (impersonating PID 300 UI)...
+[WEB_IPC] SECURITY REJECTION: Forged sender identity! Caller PID=310 forged sender_pid=300. Access denied fail-closed!
+[WEB_RENDER] PASS: Forged sender identity rejected (PermissionDenied).
+[WEB_02A_FORGED_IPC_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.2: Submitting stale handle with invalid generation...
+[WEB_IPC] SECURITY REJECTION: Stale IPC endpoint handle! PID=310 handle_gen=9999 current_gen=1. Access denied fail-closed!
+[WEB_RENDER] PASS: Stale handle rejected fail-closed (PermissionDenied).
+[WEB_02A_STALE_HANDLE_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.3: Submitting oversized payload (2048 bytes)...
+[WEB_IPC] REJECT: Oversized payload length: 2048 (max 1024)
+[WEB_RENDER] PASS: Oversized payload rejected fail-closed (InvalidArgument).
+[WEB_02A_OVERSIZED_IPC_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.4: Attempting draw on Browser UI Chrome (Surface 1)...
+[COMPOSITOR_GUARD] SECURITY REJECTION: Renderer PID 310 attempted draw on surface 1 (Browser Chrome / System UI protected). Access denied fail-closed!
+[WEB_RENDER] PASS: Attempted draw on Browser Chrome rejected (PermissionDenied).
+[WEB_02A_CHROME_PROTECTION_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.5: Attempting out-of-bounds coordinate draw...
+[COMPOSITOR_GUARD] REJECT: Draw command exceeds content surface boundaries (right=2100 bottom=60)
+[WEB_RENDER] PASS: Out-of-bounds draw rejected (InvalidArgument).
+[WEB_02A_COMPOSITOR_BOUNDS_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Negative Test 5.6: Attempting invalid UTF-8 sequence in DrawText...
+[COMPOSITOR_GUARD] REJECT: Invalid UTF-8 sequence in DrawText
+[WEB_RENDER] PASS: Invalid UTF-8 sequence rejected fail-closed (InvalidArgument).
+[WEB_02A_UTF8_VALIDATION_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Milestone WEB-02A ALL ACCEPTANCE GATES PASSED (100% VERIFIED).
+[WEB_02A_ALL_ACCEPTANCE_GATES_PASSED_MARKER_v1.0]
+
+[WEB_RENDER] ======================================================
+[WEB_RENDER] Starting Milestone WEB-02B HTML Parser Verification
+[WEB_RENDER] ======================================================
+[WEB_RENDER] Gate 1: Parsing representative document into verified DOM...
+[WEB_RENDER] Gate 1 PASS: Representative document parsed with full DOM tree.
+[WEB_02B_REPRESENTATIVE_DOM_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 2: Verifying chunk-boundary invariance across chunk splits...
+[WEB_RENDER] Gate 2 PASS: 1-byte, 3-byte, and 7-byte chunks yield identical DOMs.
+[WEB_02B_CHUNK_INVARIANCE_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 3: Testing deep element nesting recursion limit (TreeDepth <= 64)...
+[WEB_RENDER] Gate 3 PASS: Deep nesting deterministically rejected with TreeDepth limit.
+[WEB_02B_MAX_DEPTH_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Gate 4: Testing oversized attribute value and input byte limits...
+[WEB_RENDER] Gate 4 PASS: Oversized attribute rejected with AttrValueLength limit.
+[WEB_02B_OVERSIZED_ATTR_REJECTED_MARKER_v1.0]
+[WEB_RENDER] Gate 5: Testing malformed HTML stream and entity recovery...
+[WEB_RENDER] Gate 5 PASS: Malformed entity preserved literally, incomplete UTF-8 replaced with U+FFFD.
+[WEB_02B_MALFORMED_RECOVERY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 6: Testing inert script & style execution with passive event attributes...
+[WEB_RENDER] Gate 6 PASS: Script tags stored as inert text; event handlers stored passively.
+[WEB_02B_INERT_SCRIPT_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 7: Verifying zero ambient authority maintained post-parsing...
+[KERNEL_SYSCALL] SYS_NET_SOCKET: PermissionDenied for token
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 17, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] PASS: Post-parsing socket creation denied fail-closed.
+[KERNEL_SYSCALL] SYS_FILE_CREATE: PermissionDenied for 'test_output.txt'
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 10, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] PASS: Post-parsing file creation denied fail-closed.
+[WEB_02B_ZERO_AMBIENT_MAINTAINED_MARKER_v1.0]
+
+[WEB_RENDER] Milestone WEB-02B ALL ACCEPTANCE GATES PASSED (100% VERIFIED).
+[WEB_02B_ALL_ACCEPTANCE_GATES_PASSED_MARKER_v1.0]
+
+[WEB_RENDER] ======================================================
+[WEB_RENDER] Starting Milestone WEB-02C Conformance & Fuzzing Gates
+[WEB_RENDER] ======================================================
+[WEB_RENDER] Gate 8: Running WHATWG conformance fixture suite...
+[WEB_RENDER] Gate 8 PASS: WHATWG doctypes, tokenization, tree construction, and deliberate limits verified.
+[WEB_02C_WHATWG_CONFORMANCE_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 9: Verifying XFAIL behavior matrix (inert scripts, passive elements)...
+[WEB_RENDER] Gate 9 PASS: XFAIL matrix verified (XFAIL-001 through XFAIL-003 inert/passive).
+[WEB_02C_XFAIL_MATRIX_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 10: Running deterministic seeded chunk fuzzer & boundary cuts...
+[WEB_RENDER] Gate 10 PASS: Seeded fuzzer (20 rounds, seed=0x1337c0de) and boundary cuts invariant.
+[WEB_02C_SEEDED_FUZZING_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 11: Running independent structural oracle on parsed DOM...
+[WEB_RENDER] Gate 11 PASS: Independent structural oracle validated DOM ground-truth.
+[WEB_02C_STRUCTURAL_ORACLE_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 12: Testing combinatorial resource stress & measuring peak telemetry...
+[WEB_RENDER] Telemetry: Measured Peak Heap: 426559 bytes / 524288 bytes capacity
+[WEB_RENDER] Telemetry: Measured Operations Charged: 16193 ops / 100000 max budget
+[WEB_RENDER] Telemetry: Measured DOM Nodes: 456 nodes / 2048 max nodes
+[WEB_RENDER] Gate 12 PASS: Combinatorial stress and peak telemetry measured successfully.
+[WEB_02C_RESOURCE_TELEMETRY_MEASURED_MARKER_v1.0]
+[WEB_RENDER] Gate 13: Triggering authoritative Sentinel S103 kernel telemetry events...
+[KERNEL_SYSCALL] SYS_NET_SOCKET: PermissionDenied for token
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 17, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[KERNEL_SYSCALL] SYS_FILE_CREATE: PermissionDenied for 'test_output.txt'
+[SENTINEL_S103_AUDIT] Event ID: 0x0000000000000028, PID: 310, Syscall: 10, Policy: DENY fail-closed
+[SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_RENDER] Gate 13 PASS: Nonblocking authoritative kernel telemetry triggered.
+[WEB_02C_SENTINEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+
+[WEB_RENDER] Milestone WEB-02C ALL ACCEPTANCE GATES PASSED (100% VERIFIED).
+[WEB_02C_ALL_ACCEPTANCE_GATES_PASSED_MARKER_v1.0]
+[RING3] SYS_EXIT received from user task: exit_code=0. Safely terminating user process.
+[SCHEDULER] Process PID 310 terminated with code 0
+[LIFECYCLE] Reclaiming resources for terminated PID 310...
+[LIFECYCLE] Revoked 0 capability tokens.
+[LIFECYCLE] Deactivated 0 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 310.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 310.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[RING3] User application execution terminated. Exit code: 0
+[RING3_CLEAN_EXIT_MARKER_v1.0]
+[WEB_02C] web_render returned exit_code=0
+[WEB_02C] Verifying kernel Sentinel S103 audit events recorded for PID 310...
+[WEB_02C] Total authoritative audit events recorded for PID 310: 6
+[WEB_02C] Kernel verified Sentinel S103 authoritative telemetry events recorded.
+[WEB_02C_KERNEL_S103_TELEMETRY_VERIFIED_MARKER_v1.0]
+[WEB_02C] Testing post-termination lifecycle and resource reclamation...
+[LIFECYCLE] Reclaiming resources for terminated PID 310...
+[LIFECYCLE] Revoked 0 capability tokens.
+[LIFECYCLE] Deactivated 0 compositor surfaces.
+[LIFECYCLE] Incremented IPC generation and flushed Web IPC endpoints for PID 310.
+[RESOURCE_QUOTA] Reclaimed memory pages, file ops, and CPU budget for PID 310.
+[RESOURCE_QUOTA_RECLAIMED_VERIFIED_MARKER]
+[LIFECYCLE_RESOURCE_RECLAMATION_VERIFIED_MARKER_v1.0]
+[WEB_IPC] SECURITY REJECTION: Stale IPC endpoint handle! PID=310 handle_gen=2 current_gen=3. Access denied fail-closed!
+[WEB_02C] Post-termination stale handle rejected as expected.
+[WEB_02C_POST_TERMINATION_LIFECYCLE_VERIFIED_MARKER_v1.0]
+[WEB_02C] Verifying kernel and compositor fault containment...
+[WEB_02C] Compositor operational, renderer active surfaces count: 0
+[WEB_02C_FAULT_CONTAINMENT_VERIFIED_MARKER_v1.0]
+[WEB_02C_STAGE3_COMPLETE_MARKER_v1.0]

@@ -1,0 +1,11 @@
+(copy_files ../inference/quant_engine.{c,h})
+
+(library
+ (name inos_models)
+ (modules protocol envelope runtime_a runtime_b handoff escalation code_sandbox pretrained_adapter neural_engine optimizing_engine lora_hub)
+ (foreign_stubs
+  (language c)
+  (names quant_engine quant_c_stubs)
+  (flags (:standard -O3 -mavx2 -mfma -DQUANT_ENGINE_LIB=1)))
+ (libraries unix inos_ipc inos_memory inos_ir inos_tonic inos_scp inos_nnc))
+

@@ -1,0 +1,31 @@
+{
+  "total_evaluated": 20,
+  "classification_matches": 20,
+  "classification_accuracy_pct": 100.00,
+  "true_positive_authorizations": 4,
+  "true_negative_denials": 13,
+  "false_authorizations": 0,
+  "false_authorization_rate_pct": 0.00,
+  "true_clarifications": 3,
+  "false_clarifications": 0,
+  "missed_clarifications": 0,
+  "clarification_precision_pct": 100.00,
+  "clarification_recall_pct": 100.00,
+  "model_calls_avoided": 20,
+  "model_avoidance_rate_pct": 100.00,
+  "unnecessary_refusals": 3,
+  "unnecessary_refusal_rate_pct": 15.00,
+  "correct_escalations": 0,
+  "valid_ir_emitted": 4,
+  "valid_ir_rate_pct": 20.00,
+  "latency_micros": {
+    "min": 16.0,
+    "p50": 88.0,
+    "p95": 163.1,
+    "p99": 163.1,
+    "max": 176.9,
+    "mean": 95.2
+  },
+  "peak_rss_kb": 5376,
+  "total_tokens_generated": 0
+}

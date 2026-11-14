@@ -1,0 +1,13 @@
+[package]
+name = "archive_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+inos-app-sdk = { path = "../../sdk" }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"

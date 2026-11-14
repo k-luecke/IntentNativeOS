@@ -1,0 +1,5 @@
+ID,Gate,Area,Task,Depends_on,Done_when,Status,Owner,Evidence,Notes
+T_DEP,TEST,Acceptance,Dependent task unblocked by T_OK1,T_OK1,dune test passes,Done,Supervisor,evidence/T_DEP_verified.md,Independent review passed for T_DEP (exit 0, zero python files)
+T_FAIL,TEST,Acceptance,Intentionally failing task with bounded repair,,fails verification,Blocked,Supervisor,,
+T_OK1,TEST,Acceptance,Independent passing task 1,,dune test passes,Done,Supervisor,evidence/T_OK1_verified.md,Independent review passed for T_OK1 (exit 0, zero python files)
+T_OK2,TEST,Acceptance,Independent passing task 2,,dune test passes,Done,Supervisor,evidence/T_OK2_verified.md,Independent review passed for T_OK2 (exit 0, zero python files)

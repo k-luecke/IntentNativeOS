@@ -1,0 +1,42 @@
+Gate_ID,Requirement_ID,Description,Status,Maturity,Verified_By,Blocker_Status
+G1,REQ-G1-1,Ring 0/3 privilege boundary and page table isolation,Verified,E2,kernel::test_user_mode_address_space_isolation,Non-Blocking
+G1,REQ-G1-2,Monotonic capability delegation and attenuation,Verified,E2,kernel::test_sentinel_cycle1_suite,Non-Blocking
+G1,REQ-G1-3,Zero ambient authority for storage/net/module syscalls,Verified,E2,kernel::test_sentinel_cycle1_suite,Non-Blocking
+G1,REQ-G1-4,User buffer pointer validation before kernel dereference,Verified,E2,kernel::validate_user_access,Non-Blocking
+G2,REQ-G2-1,Stateful default-deny inbound firewall and conntrack,Verified,E2,kernel::test_sentinel_cycle2_firewall_suite,Non-Blocking
+G2,REQ-G2-2,"Default-deny outbound egress and (pid,gen) identity binding",Verified,E2-qemu-guest,test_web_01b.sh / BQS-01,Non-Blocking
+G2,REQ-G2-3,Active flow and socket revocation on cap revoke,Verified,E2-qemu-guest,test_web_01b.sh / BQS-01,Non-Blocking
+G2,REQ-G2-4,Fail-closed protocol and raw packet checks,Verified,E2-qemu-guest,test_web_01b.sh / BQS-01,Non-Blocking
+G2,REQ-G2-5,DNSSEC validation (RFC 4033-4035) and DoH trust profiles (S203),Verified,E2-unit,kernel::test_sentinel_cycle4_dnssec_suite,Non-Blocking
+G3,REQ-G3-1,FIDO2 / WebAuthn assertion verification with UP/UV (S301),Partially Verified,E1-simulated,test_sentinel_bqs.ml,BLOCKED (Hardware Required)
+G3,REQ-G3-2,Replay-resistant step-up broker and Auth!=Authz invariant (S302),Verified,E1,test_sentinel_cycle3.ml,Non-Blocking
+G3,REQ-G3-3,256-bit entropy and 24-word BIP-39 mnemonic with checksum (S303),Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G3,REQ-G3-4,Authenticated key wrapping via RFC 3394 / ChaCha20-Poly1305 (S303),Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G3,REQ-G3-5,Architectural separation of identity vs data recovery (S303),Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G3,REQ-G3-6,Post-quantum hybrid migration support (ML-KEM-768),Verified,E1,test_sentinel_cycle4.ml,Non-Blocking
+G4,REQ-G4-1,"Automated vulnerability intel engine (NVD, KEV, OSV) (S401)",Verified,E1,test_sentinel_cycle4.ml,Non-Blocking
+G4,REQ-G4-2,Deterministic component mapping with 5 uncertainty tiers (S401),Verified,E1,test_sentinel_cycle4.ml,Non-Blocking
+G4,REQ-G4-3,Feed freshness monitor and AI non-authority invariant (S401),Verified,E1,test_sentinel_cycle4.ml,Non-Blocking
+G4,REQ-G4-4,TUF v1.0.33 secure update engine with 4-role separation (S402),Verified,E1,test_sentinel_bqs.ml,Non-Blocking
+G4,REQ-G4-5,Monotonic anti-rollback and expiration verification (S402),Verified,E1,test_sentinel_bqs.ml,Non-Blocking
+G4,REQ-G4-6,Transactional A/B slot staging and watchdog rollback (S402),Verified,E1,test_sentinel_bqs.ml,Non-Blocking
+G5,REQ-G5-1,Behavioral anomaly detection and untrusted process sandboxing,Verified,E2,kernel::test_app_cap_suite,Non-Blocking
+G5,REQ-G5-2,Prompt defense-in-depth and provenance taint tracking (S502),Verified,E1,test_sentinel_cycle2.ml,Non-Blocking
+G5,REQ-G5-3,Epistemic authority boundaries and type separation (S503),Verified,E1,test_sentinel_cycle3.ml,Non-Blocking
+G5,REQ-G5-4,Cardinal invariant: Verified_System_Fact != Authority (S503),Verified,E1,test_sentinel_cycle3.ml,Non-Blocking
+G5,REQ-G5-5,Monotonic downward cross-agent delegation (S503),Verified,E1,test_sentinel_cycle3.ml,Non-Blocking
+G6,REQ-G6-1,Native accessible security console UI (S601),Verified,E1/E2,userspace/apps/security_console,Non-Blocking
+G6,REQ-G6-2,"Clear, un-obscured threat states (Safe/Action/Threat)",Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G6,REQ-G6-3,Plain-language permission prompts with digest preview,Verified,E1/E2,userspace/apps/security_console,Non-Blocking
+G6,REQ-G6-4,Consumer-accessible network controls and flow monitor,Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G6,REQ-G6-5,Guided 24-word recovery enrollment and test recovery,Verified,E1/E2,test_sentinel_bqs.ml,Non-Blocking
+G7,REQ-G7-1,Normative standards mapping and limit disclosures,Verified,E5,STANDARDS_CONFORMANCE.md,Non-Blocking
+G8,REQ-G8-1,Firewall packet evaluation latency <= 50us,Verified,E2,kernel::benches/firewall_bench,Non-Blocking
+G8,REQ-G8-2,Kernel conntrack memory overhead <= 16MB,Verified,E2,kernel::benches/firewall_bench,Non-Blocking
+G8,REQ-G8-3,Broker step-up latency <= 100ms,Verified,E1,test_sentinel_cycle3.ml,Non-Blocking
+G8,REQ-G8-4,Vulnerability cache bounded <= 10MB RAM,Verified,E1,test_sentinel_cycle4.ml,Non-Blocking
+G8,REQ-G8-5,A/B update atomic commit and rollback <= 5s,Verified,E1-simulated,test_sentinel_bqs.ml,Non-Blocking (HW Reboot Unmeasured)
+G9,REQ-G9-1,Adversarial mutation test suite with 100% fail-closed,Verified,E1/E2,scripts/test_sentinel_cycle4.sh,Non-Blocking
+G9,REQ-G9-2,Independent code and architecture verification,Blocked,Blocked,Pending External Security Audit,BLOCKED (External Review Required)
+G9,REQ-G9-3,Documented risk acceptance register for all findings,Verified,E1,KNOWN_RISKS.md,Non-Blocking
+G9,REQ-G9-4,Comprehensive beta readiness dossier,Verified,E1,BETA_READINESS_REPORT.md,Non-Blocking

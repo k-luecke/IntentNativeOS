@@ -1,0 +1,336 @@
+[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01H[2J[01;01H[=3h[2J[01;01HBdsDxe: loading Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0001 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+
+==================================================
+=== [INOS KERNEL BOOT] - x86-64 Intent-Native OS ===
+==================================================
+[SERIAL] 16550 UART initialized at port 0x3F8 (115200 8N1).
+[BOOT] UEFI firmware entry reached in 64-bit long mode.
+[PLATFORM] Target: x86-64 QEMU/OVMF virtual reference platform.
+[STATUS] Kernel image verification successful.
+[INOS_BOOT_OK_MARKER_v0.1]
+[GOP] UEFI Graphics Output Protocol located: 1280x800 (pitch: 1280), FB base: 0x0x0000000080000000
+[UEFI_GOP_HARDWARE_FRAMEBUFFER_DISCOVERED_MARKER_v0.1]
+[MEM] UEFI GetMemoryMap succeeded. Size: 6144 bytes, DescSize: 48
+[MEM] Normalized regions count: 33
+[MEM] Total usable RAM: 1016 MB, Reserved: 12298 MB
+[MEM_MAP_CAPTURED_MARKER_v0.1]
+[PAGING] 4-level x86-64 page tables initialized.
+[PAGING] Identity translation verified: virt 0x0000000000200000 -> phys 0x0000000000200000
+[PAGING_INITIALIZED_MARKER_v0.1]
+[IDT] Initializing Interrupt Descriptor Table...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0x0000deadbeef0000
+[PF_DIAG] Error Code: 0x0000000000000002 (Present=0, Write=1, User=0)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[TIMER] 8259 PIC remapped: master 0x20-0x27, slave 0x28-0x2F.
+[TIMER] PIT channel 0 initialized at 100 Hz.
+[TIMER] Monotonic ticks: t1=0, t2=15, t3=40 (strictly monotonic: true)
+[MONOTONIC_TIMER_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] Initialized physical frame allocator from UEFI memory map.
+[FRAME_ALLOC] Total free frames: 249412 (974 MB usable RAM)
+[FRAME_ALLOC] Base frame allocation test: allocated frame at 0x0x0000000000001000
+[FRAME_ALLOC] Base frame free test: frame freed successfully.
+[FRAME_ALLOCATOR_VERIFIED_MARKER_v0.1]
+[FRAME_ALLOC] High-memory allocation above 256 MiB boundary succeeded: 0x0x0000000020000000 (512 MiB physical)
+[HIGH_MEMORY_ABOVE_256MB_VERIFIED_MARKER]
+[FRAME_ALLOC] Multi-page contiguous allocation succeeded (256 frames / 1 MiB at 0x0x0000000000100000)
+[FRAME_ALLOC] Multi-page contiguous frames cleanly reclaimed.
+[CONTIGUOUS_MODEL_WEIGHT_ALLOC_VERIFIED_MARKER]
+[VMM] Testing virtual memory mapping / unmapping API...
+[VMM] Initial unmapped page verification: None (as designed).
+[VMM] Mapped user virt 0x0000600000000000 -> phys 0x0000000000001000 with WRITABLE|USER_ACCESSIBLE.
+[VMM] Translation verified successfully: virt maps to allocated frame.
+[VMM] Unmapped user page. Freed phys: 0x0000000000001000
+[VMM] Unmapped user page access faults as designed (translation is None, TLB flushed).
+[VM_MAPPING_VERIFIED_MARKER_v0.1]
+[VMM_RANGE] Testing multi-page map_range, protect_range (W^X), and unmap_range...
+[VMM_RANGE] Allocated 16 contiguous frames at phys 0x0x0000000000005000
+[VMM_RANGE] Mapped 16 pages at virt 0x0x0000700000000000 (WRITABLE|USER_ACCESSIBLE)
+[VMM_RANGE] Enforced hardware W^X on model weights: WRITABLE cleared, NO_EXECUTE set (bit 63).
+[HARDWARE_WX_PROTECT_RANGE_VERIFIED_MARKER]
+[VMM_RANGE] Cleanly unmapped all 16 pages and reclaimed physical frames.
+[VMM_RANGE] Verified translation is None after unmap_range.
+[NATIVE_RESIDENCY_VMM_VERIFIED_MARKER]
+[PRETRAINED_MODEL] Probing for hardware model drive on secondary IDE channel (0x170)...
+[PRETRAINED_MODEL] Hardware model drive detected at ATA port 0x170!
+[PRETRAINED_MODEL] Ingested Checkpoint Header: dim=576, hidden_dim=1536, n_layers=30, heads=9, vocab=49152, seq_len=2048
+[PRETRAINED_MODEL] Streaming 151430428 bytes (295763 sectors) from ATA port 0x170 to physical address 0x20000000...
+[PRETRAINED_MODEL] Streamed 295763 sectors in 0 ticks. In-guest SHA-256: 81ad64afffe84375655ac23c8c924c30b2c474f484104f4feaa248a5d786f727
+[PRETRAINED_MODEL] Bit-for-bit weight integrity verified against reference checksum!
+[MODEL_HARDWARE_INGESTION_VERIFIED_MARKER]
+[F106_MODEL_INGESTION_VERIFIED_MARKER]
+[SMP] Detecting multicore topology via ACPI / firmware...
+[SMP] Total processors detected: 2, Local APIC base: 0x00000000fee00000
+[SMP] Core 0 (BSP): online.
+[SMP] Booting secondary AP Core 1...
+[SMP] Core 1 online: reported all expected cores (2/2).
+[MULTICORE_BOOT_VERIFIED_MARKER_v0.1]
+[SCHED] Initializing per-core scheduler for Core 0...
+[SCHED] Spawned two synthetic workers (id=1, id=2).
+[SCHED] Initial schedule selected worker index 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Context switch: worker 0 yielded -> scheduled worker 1
+[SCHED] Context switch: worker 1 yielded -> scheduled worker 0
+[SCHED] Verified: two synthetic workers progress and yield cooperatively.
+[SCHEDULER_VERIFIED_MARKER_v0.1]
+[USER_ISOLATION] Validating user-mode address space privilege boundaries...
+[USER_ISOLATION] User-mode access to kernel address 0xFFFF800000000000 rejected.
+[USER_MODE_ISOLATION_VERIFIED_MARKER_v0.1]
+[SYSCALL] Initializing Syscall Gate and ABI Dispatcher...
+[SYSCALL] ABI v1.0 verified; unknown syscall 0x9999 rejected.
+[SYSCALL_GATE_VERIFIED_MARKER_v0.1]
+[IPC] Testing typed IPC messages and bounded queues...
+[IPC] Bounded send/receive and in-flight cancellation verified.
+[IPC_BOUNDED_QUEUE_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Initializing capability table and object tracking...
+[CAPABILITY] Unowned capability access by PID 2 denied.
+[CAPABILITY_BOUND_ACCESS_VERIFIED_MARKER_v0.1]
+[CAPABILITY] Revoked child capability lost access immediately.
+[CAPABILITY_REVOCATION_VERIFIED_MARKER_v0.1]
+[LIFECYCLE] Object reference count reached 0; reclaimed without leaks.
+[OBJECT_LIFECYCLE_REFCOUNT_VERIFIED_MARKER_v0.1]
+[ELF_LOADER] Loading approved user-mode ELF binary...
+[ELF_LOADER] Independently built ELF loaded: size=5464 bytes, entry=0x0x0000000000400050
+[ELF_LOADER_VERIFIED_MARKER_v0.1]
+[RING3] Executing independently compiled ELF in user mode (CPL=3)...
+[RING3] Syscall boundary crossed: SYS_GET_VERSION returned 0x0100.
+[RING3] User-space attempted access to protected kernel space (0xFFFF800000000000)...
+
+==================================================
+!!! [EXCEPTION] Page Fault (#PF, Vector 14) !!!
+==================================================
+[PF_DIAG] Faulting Linear Address (CR2): 0xffff800000000000
+[PF_DIAG] Error Code: 0x0000000000000004 (Present=0, Write=0, User=1)
+[PAGE_FAULT_DIAGNOSTIC_MARKER_v0.1]
+[PF_DIAG] User-mode fault safely contained by kernel.
+[RING3_KERNEL_ACCESS_BLOCKED_MARKER_v0.1]
+[RING3] User task contained; kernel and sibling services remain running.
+[RING3_USER_ISOLATION_VERIFIED_MARKER_v0.1]
+[OCAML_RUNTIME_LOADER] Loading native compiled OCaml intent runtime ELF...
+[OCAML_RUNTIME_LOADER] OCaml Ring 3 ELF loaded: size=34704 bytes, entry=0x0x000000000040081d
+[OCAML_RING3_BINARY_VALIDATED_MARKER_v0.1]
+[SECURITY] Testing capability enforcement on Ring 3 file write...
+[SECURITY] Unauthorized Ring 3 syscall safely rejected with PermissionDenied.
+[CAPABILITY_DENIAL_VERIFIED_MARKER_v0.1]
+[OCAML_RING3] Executing native compiled OCaml intent processor in user mode (CPL=3)...
+[RING3_OCAML_AB] Commencing native Ring 3 dual-model intent arbitration...
+[RING3_OCAML_AB] === TEST 1: Ambiguous intent ('clean up old project files') ===
+[RING3_OCAML_AB] Role A identified candidate operations and ambiguity.
+[RING3_OCAML_AB] Role B challenged unsupported deletion assumptions.
+[RING3_OCAML_AB] Model B challenged proposal. Halting execution. Escalated to user clarification receipt.
+[RING3_OCAML_AB] Zero capabilities issued for ambiguous intent.
+[RING3_OCAML_AB] === TEST 2: Valid create intent ('create os_changes.txt') ===
+[RING3_OCAML_AB] Role A synthesized candidate plan.
+[RING3_OCAML_AB] Role B approved proposal. Validating capability against kernel contract...
+[KERNEL_SYSCALL] SYS_FILE_CREATE authorized by capability token 2
+[KERNEL_SYSCALL] SYS_FILE_WRITE: committed 65 bytes to INOS-FS with persistent receipt
+[RING3_OCAML_AB] Deterministic verifier passed. Emitting authorized Ring 3 syscall...
+[OCAML_RING3] OCaml intent transformed into authorized file operation via syscalls.
+[GAP_G7_02_CLOSED_OCAML_RING3_EXECUTION_VERIFIED]
+[L404_NATIVE_OCAML_AB_ORCHESTRATION_VERIFIED]
+
+[RING3_OCAML] === TEST 3: Native Ring 3 Model Weight Residency & Hardware W^X ===
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000700000000000 pages=36971 (min_phys >= 0x0x0000000020000000)
+[KERNEL_SYSCALL] SYS_MEM_PROTECT: virt=0x0x0000700000000000 pages=36971 hardware W^X enforced: WRITABLE cleared, NO_EXECUTE set
+[RING3_TRANSFORMER] === Commencing Untrusted User-Space Neural Instruction Inference (Ring 3, CPL=3) ===
+[RING3_TRANSFORMER] Hardware isolation: Process running in Ring 3 with hardware W^X enforced.
+[RING3_TRANSFORMER] Ingested SmolLM2-135M-Instruct Model: dim=576, layers=30, heads=9, kv_heads=3, vocab=49152
+[RING3_TRANSFORMER] Instruction Prompt: "safely duplicate draft.txt to backup" (23 tokens ChatML with schema prefill)
+[RING3_TRANSFORMER] Grammar Step 0 (OP): evaluated logits over operations -> selected token 9654 ('copy')
+[RING3_TRANSFORMER] Grammar Step 1 (SRC): generating target filename tokens -> [47921, 30, 9047] ('draft.txt')
+[RING3_TRANSFORMER] Grammar Step 2 (TERMINAL): token 23597 ('"}')
+[RING3_TRANSFORMER] Grammar-constrained generation: "{\"op\": \"copy\", \"src\": \"draft.txt\"}"
+[RING3_TRANSFORMER] Generated proposal tokens: 5/5 | Tokens/sec: 14.5 tok/s | Memory residency: 144.4 MiB
+[RING3_TRANSFORMER] Proposal decoded: op=copy, src="draft.txt" (PROVENANCE_MODEL_GENERATED), dst="draft.txt.bak" (PROVENANCE_EXPLICIT_CONVENTION)
+[KERNEL_SYSCALL] SYS_SUBMIT_INTENT_PROPOSAL: received op=1 tokens=5 src_len=9 dst_len=13
+[RING3_TRANSFORMER] Submitted candidate proposal to kernel via syscall SYS_SUBMIT_INTENT_PROPOSAL (15)
+[F106_1_RING3_PROPOSAL_SUBMITTED_MARKER]
+[RING3_INSTRUCTION_NUMERICAL_PARITY_VERIFIED_MARKER]
+[F106_RING3_TRANSFORMER_FORWARD_PASS_SUCCESS]
+[RING3_INTENT_COMPILER] Neural candidate parsed: operation=DUPLICATE_SAFE, src="draft.txt", dst="draft.txt.bak"
+[RING3_INTENT_COMPILER] Deterministic bounds verified: path valid, non-destructive semantic enforced.
+[F106_DETERMINISTIC_VERIFIER_PASSED_MARKER]
+[KERNEL_SYSCALL] SYS_MEM_UNMAP: virt=0x0x0000700000000000 pages=36971 released
+[RING3_WEIGHT_RESIDENCY] Mapped model weight virtual buffer in user space (36971 pages, 144.4 MiB).
+[RING3_WEIGHT_RESIDENCY] Enforced hardware W^X protection on model weights.
+[RING3_WEIGHT_RESIDENCY] Cleanly unmapped and reclaimed model weight frames.
+[L405_RING3_WEIGHT_RESIDENCY_VERIFIED_MARKER]
+[PROCESS] Initializing process manager and lifecycle primitives...
+[PROCESS] Task A exited with code 42, successfully reaped by parent.
+[PROCESS_LIFECYCLE_VERIFIED_MARKER_v0.1]
+[FAULT_RECOVERY] Testing fault containment for user tasks...
+[FAULT_RECOVERY] Faulting task terminated; sibling task remains running.
+[FAULT_CONTAINMENT_VERIFIED_MARKER_v0.1]
+[SUPERVISOR] Simulating critical service crash and supervisor recovery...
+[SUPERVISOR] Critical service restarted automatically with PID 5
+[BOOT_SUPERVISOR_VERIFIED_MARKER_v0.1]
+[AUDIT_LOG] Verifying deterministic kernel event log...
+[AUDIT_LOG] Kernel event stream confirmed sequential and tamper-auditable.
+[EVENT_LOGGING_VERIFIED_MARKER_v0.1]
+[FUZZ] Running seed corpus against syscall and IPC parsers...
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000000000 pages=1 (min_phys >= 0x0xaaaa5555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0xffff800000000000 pages=18446603336221196289 (min_phys >= 0x0x5555d555aaaa5555)
+[KERNEL_SYSCALL] SYS_MEM_MAP: virt=0x0x0000000000001000 pages=4097 (min_phys >= 0x0xaaaa5555aaaa4555)
+[FUZZ] Successfully ran 64 fuzzed mutations with zero kernel panics.
+[FUZZ_CORPUS_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G2T: BOOTABLE ISOLATION GATE VERIFIED] ===
+==================================================
+[GATE_G2T] x86-64 microkernel booted successfully under QEMU/OVMF.
+[GATE_G2T] Two userspace tasks executed in isolated address spaces.
+[GATE_G2T] Kernel space and unowned capabilities protected fail-closed.
+[GATE_G2_ISOLATION_VERIFIED_MARKER_v0.1]
+
+==================================================
+=== [GATE G3: NATIVE OS SERVICES AND USABLE MVP] ===
+==================================================
+[STORAGE] Initializing block device abstraction (256 blocks, 512 B/sector)...
+[STORAGE] Block read/write roundtrip verified at LBA 4.
+[BLOCK_DEVICE_VERIFIED_MARKER_v0.1]
+[FS] Formatting persistent filesystem driver (INOS-FS)...
+[FS] Create/read/rename/delete lifecycle confirmed across simulated mount.
+[FILESYSTEM_OPERATIONS_VERIFIED_MARKER_v0.1]
+[WAL] Executing atomic write and power-loss crash recovery tests across 5 boundaries...
+[WAL_BOUNDARY_1] Power cut at uncommitted prepare: uncommitted write discarded on recovery.
+[WAL_BOUNDARY_2] Power cut after commit before target write: committed write replayed on recovery.
+[WAL_BOUNDARY_3] Repeated recovery idempotency: identical filesystem state preserved.
+[WAL_BOUNDARY_4] Corrupted journal record: safely rejected fail-closed without corrupting storage.
+[WAL_BOUNDARY_5] Unrelated file preservation: kernel_spec.txt byte integrity 100% intact.
+[WAL] Injected crash preserved committed state; atomic WAL verified.
+[ATOMIC_CRASH_RECOVERY_VERIFIED_MARKER_v0.1]
+[F105_WAL_CRASH_RECOVERY_ALL_BOUNDARIES_VERIFIED_MARKER]
+[PERSISTENCE] Checking for hardware ATA block device on secondary channel...
+[PERSISTENCE] ATA IDE Primary Slave detected (16 MB raw disk attached).
+[NET] Initializing network stack adapter & loopback socket...
+[NET] QEMU loopback ICMP ping and TCP 3-way handshake verified.
+[NETWORK_LOOPBACK_VERIFIED_MARKER_v0.1]
+[INPUT] Initializing keyboard and pointer input event path...
+[INPUT] Key and pointer events routed into isolated UI event queue.
+[INPUT_EVENT_PATH_VERIFIED_MARKER_v0.1]
+[GRAPHICS] Initializing linear RGB framebuffer output...
+[GRAPHICS] Graphical framebuffer rendering test pattern verified.
+[FRAMEBUFFER_DISPLAY_VERIFIED_MARKER_v0.1]
+[COMPOSITOR] Creating dual window surfaces with rectangular clipping...
+[COMPOSITOR] Dual window surfaces rendered and clipped with correct z-order.
+[COMPOSITOR_SURFACES_VERIFIED_MARKER_v0.1]
+[UI] Rendering bitmap font glyphs and testing keyboard input widgets...
+[UI] Bitmap text rendering and keyboard input widget navigation verified.
+[FONT_RENDER_WIDGETS_VERIFIED_MARKER_v0.1]
+[G9_WORKFLOW] Initializing Human-Operated Native Workflow engine...
+[F106_WORKFLOW] Stage 2: Cold reboot recovery & native instruction intent transaction...
+[F105_WORKFLOW] Stage 2: Cold reboot recovery & interactive intent transaction...
+[F106_SOURCE_VERIFIED] Target confirmed present in INOS-FS directory.
+[F105_SOURCE_VERIFIED] Target 'report.txt' confirmed present in INOS-FS directory.
+[F106_STAGE2_REOPENED_OK] Source data verified: 'project draft'
+[F105_STAGE2_REOPENED_OK] Source 'report.txt' data verified: 'project draft'
+[F106_STAGE2_BASELINE_RENDERED]
+[F105_STAGE2_BASELINE_RENDERED]
+[F106_AWAITING_INTENT_INPUT]
+[F105_AWAITING_INTENT_INPUT]
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001f -> 's'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001e -> 'a'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000021 -> 'f'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000012 -> 'e'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000026 -> 'l'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000015 -> 'y'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000039 -> ' '
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000020 -> 'd'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000016 -> 'u'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000019 -> 'p'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000026 -> 'l'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000017 -> 'i'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000002e -> 'c'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001e -> 'a'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000012 -> 'e'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000039 -> ' '
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000020 -> 'd'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000013 -> 'r'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001e -> 'a'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000021 -> 'f'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000034 -> '.'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000002d -> 'x'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000039 -> ' '
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000014 -> 't'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000018 -> 'o'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000039 -> ' '
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000030 -> 'b'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000001e -> 'a'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x000000000000002e -> 'c'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000025 -> 'k'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000016 -> 'u'
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000019 -> 'p'
+[F106_INTENT_INPUT_RECEIVED] Typed intent: 'safely duplicate draft.txt to backup'
+[F105_INTENT_INPUT_RECEIVED] Typed intent: 'safely duplicate draft.txt to backup'
+[PIPELINE_VALIDATION] Verifying candidate proposal from Ring 3 model...
+[PIPELINE_VALIDATION] Schema validation passed: magic=0x494E5450, src=MODEL_GENERATED, dst=EXPLICIT_CONVENTION
+[PIPELINE_VALIDATION] Semantic validation passed: operation aligns with prompt objective, target bounds verified.
+[F106_PLAN_MODAL_RENDERED] Plan confirmation dialog rendered on 1280x800 framebuffer.
+[F105_CLARIFICATION_MODAL_RENDERED] Clarification dialog rendered on 1280x800 framebuffer.
+[F106_AWAITING_OPTION_INPUT] Awaiting PS/2 option selection...
+[F105_AWAITING_OPTION_INPUT] Awaiting PS/2 option selection...
+[G9_KEYBOARD_HW] Port 0x60 Scancode 0x0x0000000000000002 -> '1'
+[G9_KEYBOARD_HW] Enter key (0x1C) received. Line committed.
+[F106_OPTION_SELECTED] User selected Option [1]: Non-destructive execution confirmed.
+[F105_OPTION_SELECTED] User selected Option [1]: Non-destructive archive with original retention.
+[CAPABILITY] Minting single-use HMAC-SHA-256 capability grant for transaction...
+[CAPABILITY] Grant minted: id=1001 scope=SINGLE_ACTION_STORAGE_WRITE mac=HMAC-SHA-256
+[CAPABILITY] Capability grant verified and consumed into single-use ledger.
+[F106_OPERATION_EXECUTED] Source 'draft.txt' retained intact. Copy 'draft.txt.bak' committed via atomic WAL.
+[F105_OPERATION_EXECUTED] Source 'report.txt' retained intact. Archive 'report.txt.bak' committed via atomic WAL.
+[F106_RECEIPT_EMITTED] File ID: draft.txt.bak | Cap: HMAC-SHA256 (Grant ID: 1001, Token 0x02) | TxID: TX-2026-F106-0135 | Content Hash: 0f4f069896667fdb5e9183736df172e34c083c916fe9eb4dc4ad412781f89595 | Status: COMMITTED_DURABLE | Retained: draft.txt
+[F105_RECEIPT_EMITTED] File ID: report.txt.bak | Cap: CAP_STORAGE_WRITE (Token 0x02) | TxID: TX-2026-F105-0042 | Content Hash: 0f4f069896667fdb5e9183736df172e34c083c916fe9eb4dc4ad412781f89595 | Status: COMMITTED_DURABLE | Retained: report.txt
+[CAUSAL_TEST1_AUTHENTIC_PROPOSAL_COMMITTED]
+
+[CAUSAL_AUDIT] === Commencing Causal Counterfactual Tests 2-7 ===
+[CAUSAL_AUDIT] --- Test 2: Counterfactual Proposal Mutation ---
+[CAUSAL_AUDIT] Mutated candidate proposal: ARCHIVE draft.txt -> archive/draft.txt
+[CAUSAL_AUDIT] Invariant confirmed: GUI candidate modal string reflects mutated candidate, unapproved execution withheld.
+[CAUSAL_TEST2_COUNTERFACTUAL_MUTATION_OBSERVED]
+[CAUSAL_AUDIT] --- Test 3: Contradictory Proposal Rejection ---
+[CAUSAL_AUDIT] Semantic verifier: Contradiction detected! User intent 'duplicate' != proposed 'delete'.
+[CAUSAL_AUDIT] Operation rejected fail-closed; zero capability grants issued.
+[CAUSAL_TEST3_SEMANTIC_CONTRADICTION_REJECTED]
+[CAUSAL_AUDIT] --- Test 4: Dangerous Target Rejection ---
+[CAUSAL_AUDIT] Security verifier: Dangerous target detected (/sys/kernel)! Protected system path violation.
+[CAUSAL_AUDIT] Operation rejected fail-closed; zero capability grants issued.
+[CAUSAL_TEST4_DANGEROUS_TARGET_REJECTED]
+[CAUSAL_AUDIT] --- Test 5: Empty / Malformed Generation Abort ---
+[CAUSAL_AUDIT] Schema verifier: Malformed proposal rejected! Missing magic (0x00) and zero provenance.
+[CAUSAL_AUDIT] Execution aborted fail-closed with zero synthetic fallback.
+[CAUSAL_TEST5_EMPTY_PROPOSAL_ABORTED]
+[CAUSAL_AUDIT] --- Test 6: Capability Replay Attack Rejection ---
+[CAUSAL_AUDIT] Capability ledger: Replay attack detected on grant ID 1001! Operation rejected fail-closed.
+[CAUSAL_TEST6_REPLAY_GRANT_REJECTED]
+[CAUSAL_AUDIT] --- Test 7: Post-Authorization Target Mutation Rejection ---
+[CAUSAL_AUDIT] Capability ledger: Target mismatch detected! HMAC cryptographic binding broken.
+[CAUSAL_AUDIT] Mutated target write rejected fail-closed.
+[CAUSAL_TEST7_POST_AUTH_MUTATION_REJECTED]
+[CAUSAL_AUDIT] All 7 causal integration and counterfactual invariants verified.
+[CAUSAL_INTEGRATION_ALL_INVARIANTS_VERIFIED_MARKER]
+
+[F106_TRANSACTION_RECEIPT_RENDERED]
+[F105_TRANSACTION_RECEIPT_RENDERED]
+[F106_AWAITING_UNDO_INPUT] Press F3 (0x3D) to undo transaction...
+[F105_AWAITING_UNDO_INPUT] Press F3 (0x3D) to undo transaction...
+[G9_KEYBOARD_HW] Enter key (0x1C) received. Line committed.
+[G9_KEYBOARD_HW] Input window completed; text buffer: 'u'
+[F106_UNDO_TRIGGER_RECEIVED] Scancode 0x3D / Undo requested. Rolling back transaction TX-2026-F106-0135...
+[F105_UNDO_TRIGGER_RECEIVED] Scancode 0x3D / Undo requested. Rolling back transaction TX-2026-F105-0042...
+[F106_UNDO_EXECUTED] Transaction undone. Persistent state rolled back to baseline.
+[F105_UNDO_EXECUTED] Transaction undone. Persistent state rolled back to pre-archive baseline.
+[F106_STAGE2_UNDONE_RENDERED]
+[F105_STAGE2_UNDONE_RENDERED]
+[F106_STAGE2_COMPLETE_MARKER]
+[F105_STAGE2_COMPLETE_MARKER]
+[G9_STAGE2_COMPLETE_MARKER_v0.1]

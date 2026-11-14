@@ -1,0 +1,27 @@
+opam-version: "2.0"
+synopsis: "Intent-Native Operating System (INOS)"
+description: "Experimental x86-64 UEFI Rust microkernel, Ring 3 desktop applications, and OCaml 5 + C typed intent control plane"
+maintainer: ["admin@driftboundlabs.com"]
+authors: ["Kyle Luecke"]
+license: "Apache-2.0"
+homepage: "https://github.com/k-luecke/IntentNativeOS"
+bug-reports: "https://github.com/k-luecke/IntentNativeOS/issues"
+depends: [
+  "dune" {>= "3.0"}
+  "ocaml" {>= "4.14.0"}
+  "alcotest" {with-test}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]

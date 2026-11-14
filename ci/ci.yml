@@ -1,0 +1,42 @@
+name: Intent-Native OS CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_and_test:
+    name: OCaml Control Plane & Kernel Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Monorepo
+        uses: actions/checkout@v4
+
+      - name: Set up OCaml
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 4.14.x
+          dune-cache: true
+
+      - name: Install OCaml Dependencies
+        run: opam install . --deps-only --with-test -y || true
+
+      - name: Structural Monorepo Verification
+        run: dune exec scripts/verify_repo.exe
+
+      - name: Build All Targets
+        run: dune build @all
+
+      - name: Run OCaml Unit & Property Tests
+        run: dune runtest
+
+      - name: Upload Test Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inos-ci-evidence
+          path: |
+            _build/default/tests/
+            evidence/

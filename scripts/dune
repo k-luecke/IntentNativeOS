@@ -1,0 +1,3 @@
+(executable
+ (name verify_repo)
+ (modules verify_repo))

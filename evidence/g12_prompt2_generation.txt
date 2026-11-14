@@ -1,0 +1,2 @@
+Instruction: Create announcement note to notice_board.txt stating that local neural intelligence is verified offline.
+
